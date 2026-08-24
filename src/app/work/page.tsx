@@ -21,10 +21,10 @@ export default function WorkPage() {
   return (
     <div className="mx-auto min-h-screen w-full max-w-2xl px-6 pb-24 pt-36 md:pt-44">
       <FadeIn>
-        <p className="text-xs lowercase tracking-[0.25em] text-foreground/50">
+        <p className="text-sm lowercase tracking-[0.25em] text-foreground/50">
           work
         </p>
-        <h1 className="mt-3 font-heading text-3xl font-medium tracking-tight md:text-4xl">
+        <h1 className="mt-3 font-heading text-4xl font-medium tracking-tight md:text-5xl">
           selected work
         </h1>
       </FadeIn>
@@ -41,14 +41,14 @@ export default function WorkPage() {
             >
               <div className="flex items-baseline justify-between gap-6">
                 <div className="min-w-0">
-                  <h2 className="relative font-heading text-xl font-medium decoration-[1px] underline-offset-4 group-hover:underline md:text-2xl">
+                  <h2 className="relative font-heading text-2xl font-medium decoration-[1px] underline-offset-4 group-hover:underline md:text-3xl">
                     <span
                       aria-hidden="true"
                       className="absolute -left-5 size-1.5 rounded-full bg-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                     />
                     {project.name}
                   </h2>
-                  <p className="mt-1 font-mono text-xs lowercase text-foreground/50">
+                  <p className="mt-1 font-mono text-sm lowercase text-foreground/50">
                     {hostFor(project.href)}
                   </p>
                 </div>
@@ -61,7 +61,7 @@ export default function WorkPage() {
                   </span>
                 )}
               </div>
-              <p className="mt-3 line-clamp-2 max-w-xl text-[15px] leading-relaxed text-foreground/60">
+              <p className="mt-3 line-clamp-2 max-w-xl text-base leading-relaxed text-foreground/60">
                 {project.description}
               </p>
             </a>

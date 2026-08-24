@@ -11,10 +11,10 @@ export default function AboutPage() {
   return (
     <div className="mx-auto min-h-screen w-full max-w-2xl px-6 pb-24 pt-36 md:pt-44">
       <FadeIn>
-        <p className="text-xs lowercase tracking-[0.25em] text-foreground/50">
+        <p className="text-sm lowercase tracking-[0.25em] text-foreground/50">
           about
         </p>
-        <h1 className="mt-3 font-heading text-3xl font-medium tracking-tight md:text-4xl">
+        <h1 className="mt-3 font-heading text-4xl font-medium tracking-tight md:text-5xl">
           Machine learning,
           <br />
           human touch
@@ -22,14 +22,14 @@ export default function AboutPage() {
       </FadeIn>
 
       <FadeIn delay={0.08} y={16}>
-        <p className="mt-10 max-w-xl text-lg leading-relaxed text-foreground/80">
+        <p className="mt-10 max-w-xl text-xl leading-relaxed text-foreground/80">
           {MANIFESTO}
         </p>
       </FadeIn>
 
       <FadeIn delay={0.14} y={16}>
         <div className="mt-16 flex items-center gap-4">
-          <span className="font-mono text-xs lowercase text-foreground/50">
+          <span className="font-mono text-sm lowercase text-foreground/50">
             experience
           </span>
           <span className="h-px flex-1 bg-foreground/10" />
@@ -46,16 +46,16 @@ export default function AboutPage() {
             >
               <div className="flex items-baseline justify-between gap-6">
                 <div className="min-w-0">
-                  <h2 className="font-heading text-lg font-medium md:text-xl">
+                  <h2 className="font-heading text-xl font-medium md:text-2xl">
                     {entry.role}
                   </h2>
-                  <p className="mt-1 text-sm text-foreground/60">{entry.org}</p>
+                  <p className="mt-1 text-base text-foreground/60">{entry.org}</p>
                 </div>
-                <span className="shrink-0 font-mono text-xs lowercase text-foreground/50">
+                <span className="shrink-0 font-mono text-sm lowercase text-foreground/50">
                   {entry.period}
                 </span>
               </div>
-              <p className="mt-2 max-w-xl text-sm leading-relaxed text-foreground/60">
+              <p className="mt-2 max-w-xl text-base leading-relaxed text-foreground/60">
                 {entry.summary}
               </p>
             </div>
@@ -65,7 +65,7 @@ export default function AboutPage() {
 
       <FadeIn delay={0.32} y={16}>
         <div className="mt-12 flex items-center gap-4">
-          <span className="font-mono text-xs lowercase text-foreground/50">
+          <span className="font-mono text-sm lowercase text-foreground/50">
             stack
           </span>
           <span className="h-px flex-1 bg-foreground/10" />
@@ -76,14 +76,14 @@ export default function AboutPage() {
         {STACK.map((group) => (
           <FadeIn key={group.label} delay={0.36} y={16}>
             <div>
-              <p className="font-mono text-xs lowercase text-foreground/40">
+              <p className="font-mono text-sm lowercase text-foreground/40">
                 {group.label}
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-foreground/15 px-3 py-1 font-mono text-xs lowercase text-foreground/60"
+                    className="rounded-full border border-foreground/15 px-3 py-1 font-mono text-sm lowercase text-foreground/60"
                   >
                     {item}
                   </span>
@@ -99,7 +99,7 @@ export default function AboutPage() {
           href={RESUME_URL}
           target="_blank"
           rel="noreferrer"
-          className="mt-16 inline-flex items-center gap-2 font-mono text-xs lowercase text-foreground/50 transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
+          className="mt-16 inline-flex items-center gap-2 font-mono text-sm lowercase text-foreground/50 transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
         >
           resume <span aria-hidden="true">↗</span>
         </a>

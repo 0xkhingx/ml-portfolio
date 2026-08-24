@@ -1,15 +1,13 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 :root {
-  --background: #faf9f7;
-  --foreground: #1c1917;
-}
-
-.dark {
   --background: #121110;
   --foreground: #eceae6;
+}
+
+html {
+  color-scheme: dark;
+  font-size: 17px;
 }
 
 @theme inline {
@@ -41,16 +39,17 @@ body {
 .post-body h2 {
   margin-top: 2.75rem;
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.65rem;
 }
 
 .post-body h3 {
   margin-top: 2.25rem;
   margin-bottom: 0.75rem;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
 }
 
 .post-body p {
+  font-size: 1.0625rem;
   line-height: 1.8;
 }
 
@@ -117,7 +116,7 @@ body {
   border: 1px solid color-mix(in srgb, var(--foreground) 10%, transparent);
   border-radius: 2px;
   background: color-mix(in srgb, var(--foreground) 4%, var(--background));
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   line-height: 1.7;
 }
 
@@ -128,9 +127,5 @@ body {
 }
 
 .post-body .shiki span {
-  color: var(--shiki-light);
-}
-
-.dark .post-body .shiki span {
   color: var(--shiki-dark);
 }

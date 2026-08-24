@@ -51,16 +51,16 @@ export default async function WritingPage() {
   return (
     <div className="mx-auto min-h-screen w-full max-w-2xl px-6 pb-24 pt-36 md:pt-44">
       <FadeIn>
-        <p className="text-xs lowercase tracking-[0.25em] text-foreground/50">
+        <p className="text-sm lowercase tracking-[0.25em] text-foreground/50">
           writing
         </p>
-        <h1 className="mt-3 font-heading text-3xl font-medium tracking-tight md:text-4xl">
+        <h1 className="mt-3 font-heading text-4xl font-medium tracking-tight md:text-5xl">
           essays &amp; notes
         </h1>
       </FadeIn>
 
       {groups.length === 0 ? (
-        <p className="mt-16 text-sm text-foreground/60">
+        <p className="mt-16 text-base text-foreground/60">
           nothing published yet — first pieces are in progress.
         </p>
       ) : (
@@ -69,7 +69,7 @@ export default async function WritingPage() {
             <section key={year}>
               <FadeIn y={12}>
                 <div className="flex items-center gap-4">
-                  <span className="font-mono text-xs lowercase text-foreground/50">
+                  <span className="font-mono text-sm lowercase text-foreground/50">
                     {year}
                   </span>
                   <span className="h-px flex-1 bg-foreground/10" />
@@ -113,7 +113,7 @@ function EntryBody({ entry }: { entry: Entry }) {
   return (
     <>
       <div className="flex items-baseline justify-between gap-6">
-        <h2 className="relative min-w-0 font-heading text-xl font-medium decoration-[1px] underline-offset-4 group-hover:underline md:text-2xl">
+        <h2 className="relative min-w-0 font-heading text-2xl font-medium decoration-[1px] underline-offset-4 group-hover:underline md:text-3xl">
           <span
             aria-hidden="true"
             className="absolute -left-5 size-1.5 rounded-full bg-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -129,7 +129,7 @@ function EntryBody({ entry }: { entry: Entry }) {
           </span>
         )}
       </div>
-      <p className="mt-1.5 flex items-center gap-3 font-mono text-xs lowercase text-foreground/50">
+      <p className="mt-1.5 flex items-center gap-3 font-mono text-sm lowercase text-foreground/50">
         <span>
           {formatDate(entry.date)} · {entry.minutes} min
         </span>
@@ -137,7 +137,7 @@ function EntryBody({ entry }: { entry: Entry }) {
           <span className="text-foreground/30">· substack</span>
         )}
       </p>
-      <p className="mt-2 line-clamp-2 max-w-xl text-sm leading-relaxed text-foreground/60">
+      <p className="mt-2 line-clamp-2 max-w-xl text-base leading-relaxed text-foreground/60">
         {entry.description}
       </p>
     </>

@@ -6,7 +6,6 @@ import {
   Raleway,
 } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
-import { ThemeProvider } from "@/components/theme/provider";
 import "./globals.css";
 
 const bitcountInk = Bitcount_Ink({
@@ -38,29 +37,18 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#faf9f7" },
-    { media: "(prefers-color-scheme: dark)", color: "#121110" },
-  ],
+  themeColor: "#121110",
 };
-
-const themeScript = `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme: dark)").matches)){document.documentElement.classList.add("dark")}}catch(e){}})()`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      suppressHydrationWarning
       className={`${bitcountInk.variable} ${nunito.variable} ${raleway.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
       <body className="flex min-h-full flex-col font-sans">
-        <ThemeProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-        </ThemeProvider>
+        <Navbar />
+        <main className="flex-1">{children}</main>
       </body>
     </html>
   );

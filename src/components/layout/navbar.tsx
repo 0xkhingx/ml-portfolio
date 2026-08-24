@@ -10,7 +10,6 @@ import {
   useScroll,
   type Variants,
 } from "framer-motion";
-import { ThemeToggle } from "@/components/theme/toggle";
 import { Logo } from "@/components/ui/logo";
 import { NAV_ALL, NAV_LEFT, NAV_RIGHT } from "@/data/nav";
 import type { NavLink } from "@/types";
@@ -38,13 +37,13 @@ function DesktopNavItem({ link, active, hovered, onHover }: DesktopNavItemProps)
   const showUnderline = hovered === link.href || (!hovered && active);
 
   return (
-    <Link
-      href={link.href}
-      onMouseEnter={() => onHover(link.href)}
-      onMouseLeave={() => onHover(null)}
-      className={`relative text-[15px] lowercase tracking-wide transition-colors ${
-        active ? "text-foreground" : "text-foreground/70 hover:text-foreground"
-      }`}
+      <Link
+       href={link.href}
+       onMouseEnter={() => onHover(link.href)}
+       onMouseLeave={() => onHover(null)}
+       className={`relative text-[17px] lowercase tracking-wide transition-colors ${
+         active ? "text-foreground" : "text-foreground/70 hover:text-foreground"
+       }`}
     >
       <motion.span variants={itemVariants} className="block">
         {link.label}
@@ -157,8 +156,8 @@ export function Navbar() {
             </motion.span>
           </Link>
 
-          <div className="flex items-center gap-8 justify-self-end md:w-full md:justify-self-stretch md:justify-between">
-            <nav aria-label="Secondary" className="hidden items-center gap-12 md:flex md:pl-10">
+          <div className="flex items-center justify-self-end md:pr-10">
+            <nav aria-label="Secondary" className="hidden items-center gap-12 md:flex">
               {NAV_RIGHT.map((link) => (
                 <DesktopNavItem
                   key={link.href}
@@ -169,9 +168,6 @@ export function Navbar() {
                 />
               ))}
             </nav>
-            <motion.span variants={itemVariants} className="block">
-              <ThemeToggle />
-            </motion.span>
           </div>
           </div>
         </motion.div>
@@ -200,10 +196,10 @@ export function Navbar() {
                   }}
                 >
                   <Link
-                    href={link.href}
-                    onClick={closeMenu}
-                    className="text-4xl lowercase tracking-tight text-foreground"
-                  >
+                     href={link.href}
+                     onClick={closeMenu}
+                     className="text-5xl lowercase tracking-tight text-foreground"
+                   >
                     {link.label}
                   </Link>
                 </motion.div>

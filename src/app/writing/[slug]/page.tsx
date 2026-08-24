@@ -45,17 +45,17 @@ export default async function WritingPostPage({
       <FadeIn>
         <Link
           href="/writing"
-          className="inline-block font-mono text-xs lowercase text-foreground/50 transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
+          className="inline-block font-mono text-sm lowercase text-foreground/50 transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
         >
           ← all writing
         </Link>
       </FadeIn>
 
       <FadeIn delay={0.05} y={16}>
-        <h1 className="mt-10 font-heading text-3xl font-medium tracking-tight md:text-5xl">
+        <h1 className="mt-10 font-heading text-4xl font-medium tracking-tight md:text-5xl">
           {post.title}
         </h1>
-        <p className="mt-4 font-mono text-xs lowercase text-foreground/50">
+        <p className="mt-4 font-mono text-sm lowercase text-foreground/50">
           {formatDate(post.date)} · {post.minutes} min read
         </p>
         <hr className="mt-10 border-t border-foreground/10" />
