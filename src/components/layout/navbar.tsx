@@ -115,6 +115,37 @@ export function Navbar() {
         >
           <div className="mx-auto grid w-full max-w-5xl grid-cols-[auto_1fr_auto] items-center px-5 py-4 md:grid-cols-[1fr_auto_1fr] md:px-10">
           <div className="flex items-center justify-self-start md:justify-self-end md:pr-10">
+            <nav aria-label="Primary" className="hidden items-center gap-12 md:flex">
+              {NAV_LEFT.map((link) => (
+                <DesktopNavItem
+                  key={link.href}
+                  link={link}
+                  active={isActive(link.href)}
+                  hovered={hovered}
+                  onHover={setHovered}
+                />
+              ))}
+            </nav>
+          </div>
+
+          <Link href="/" aria-label="Home" className="justify-self-center">
+            <motion.span variants={itemVariants} className="block">
+              <Logo className="h-9 w-auto text-foreground" />
+            </motion.span>
+          </Link>
+
+          <div className="flex items-center justify-self-end md:justify-self-start md:pl-10">
+            <nav aria-label="Secondary" className="hidden items-center gap-12 md:flex">
+              {NAV_RIGHT.map((link) => (
+                <DesktopNavItem
+                  key={link.href}
+                  link={link}
+                  active={isActive(link.href)}
+                  hovered={hovered}
+                  onHover={setHovered}
+                />
+              ))}
+            </nav>
             <button
               type="button"
               onClick={() => {
@@ -137,37 +168,6 @@ export function Navbar() {
                 className="block h-px w-5 bg-current"
               />
             </button>
-            <nav aria-label="Primary" className="hidden items-center gap-12 md:flex">
-              {NAV_LEFT.map((link) => (
-                <DesktopNavItem
-                  key={link.href}
-                  link={link}
-                  active={isActive(link.href)}
-                  hovered={hovered}
-                  onHover={setHovered}
-                />
-              ))}
-            </nav>
-          </div>
-
-          <Link href="/" aria-label="Home" className="justify-self-center">
-            <motion.span variants={itemVariants} className="block">
-              <Logo className="h-9 w-auto text-foreground" />
-            </motion.span>
-          </Link>
-
-          <div className="flex items-center justify-self-end md:pr-10">
-            <nav aria-label="Secondary" className="hidden items-center gap-12 md:flex">
-              {NAV_RIGHT.map((link) => (
-                <DesktopNavItem
-                  key={link.href}
-                  link={link}
-                  active={isActive(link.href)}
-                  hovered={hovered}
-                  onHover={setHovered}
-                />
-              ))}
-            </nav>
           </div>
           </div>
         </motion.div>
