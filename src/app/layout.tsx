@@ -12,6 +12,8 @@ import "./globals.css";
 const bitcountInk = Bitcount_Ink({
   variable: "--font-bitcount",
   subsets: ["latin"],
+  display: "swap",
+  adjustFontFallback: false,
 });
 
 const nunito = Nunito({
@@ -29,16 +31,57 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://0xkhingx.vercel.app";
+
 export const metadata: Metadata = {
   // TODO: replace with custom domain when purchased — update NEXT_PUBLIC_SITE_URL too
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://0xkhingx.vercel.app",
-  ),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "0xkhingx",
     template: "%s — 0xkhingx",
   },
   description: "ML engineer building models — and the products around them.",
+  alternates: {
+    canonical: "/",
+  },
+  authors: [{ name: "Oluwadamilare Ogundele", url: siteUrl }],
+  creator: "Oluwadamilare Ogundele",
+  publisher: "0xkhingx",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "0xkhingx",
+    title: "0xkhingx",
+    description: "ML engineer building models — and the products around them.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "0xkhingx — ML engineer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "0xkhingx",
+    description: "ML engineer building models — and the products around them.",
+    creator: "@0xkhingx",
+    images: ["/opengraph-image"],
+  },
 };
 
 export const viewport: Viewport = {
