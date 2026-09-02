@@ -18,28 +18,28 @@ function hostFor(href: string): string {
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto min-h-screen w-full max-w-2xl px-6 pb-24 pt-36 md:pt-44">
+    <div className="mx-auto min-h-screen w-full max-w-2xl px-5 pb-20 pt-28 sm:px-6 sm:pb-24 sm:pt-36 md:pt-44">
       <FadeIn>
-        <p className="text-sm lowercase tracking-[0.25em] text-foreground/50">
+        <p className="text-xs lowercase tracking-[0.2em] text-foreground/50 sm:text-sm sm:tracking-[0.25em]">
           contact
         </p>
-        <h1 className="mt-3 font-heading text-4xl font-medium tracking-tight md:text-5xl">
+        <h1 className="mt-3 text-balance font-heading text-[32px] font-medium leading-[1.05] tracking-tight sm:text-4xl md:text-5xl">
           say hello
         </h1>
-        <p className="mt-6 max-w-xl text-xl leading-relaxed text-foreground/80">
+        <p className="mt-5 max-w-xl text-pretty text-[17px] leading-[1.7] text-foreground/80 sm:mt-6 sm:text-lg sm:leading-relaxed md:text-xl">
           A project, a role, or just a good idea — my inbox is open.
         </p>
         <a
           href={`mailto:${EMAIL}`}
-          className="mt-8 inline-flex items-center rounded-full bg-foreground px-6 py-3 text-base lowercase tracking-wide text-background transition-opacity hover:opacity-85 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
+          className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-foreground px-6 py-3.5 text-[15px] lowercase tracking-wide text-background transition-opacity hover:opacity-85 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40 sm:mt-8 sm:w-auto sm:py-3 sm:text-base"
         >
-          {EMAIL}
+          <span className="break-all">{EMAIL}</span>
         </a>
       </FadeIn>
 
       <FadeIn delay={0.12} y={16}>
-        <div className="mt-16 flex items-center gap-4">
-          <span className="font-mono text-sm lowercase text-foreground/50">
+        <div className="mt-12 flex items-center gap-4 sm:mt-16">
+          <span className="font-mono text-xs lowercase text-foreground/50 sm:text-sm">
             elsewhere
           </span>
           <span className="h-px flex-1 bg-foreground/10" />
@@ -54,18 +54,18 @@ export default function ContactPage() {
               href={channel.href}
               target="_blank"
               rel="noreferrer"
-              className="group block border-b border-foreground/10 py-6 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
+              className="group block border-b border-foreground/10 py-5 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40 sm:py-6"
             >
-              <div className="flex items-baseline justify-between gap-6">
-                <h2 className="relative font-heading text-2xl font-medium decoration-[1px] underline-offset-4 group-hover:underline">
+              <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+                <h2 className="relative text-pretty font-heading text-[20px] font-medium leading-tight decoration-[1px] underline-offset-4 group-hover:underline sm:text-2xl">
                   <span
                     aria-hidden="true"
-                    className="absolute -left-5 size-1.5 rounded-full bg-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    className="absolute -left-5 hidden size-1.5 rounded-full bg-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:block"
                   />
                   {channel.label}
                 </h2>
                 <span className="flex shrink-0 items-baseline gap-3">
-                  <span className="font-mono text-sm lowercase text-foreground/50">
+                  <span className="font-mono text-xs lowercase text-foreground/50 sm:text-sm">
                     {hostFor(channel.href)}
                   </span>
                   <span

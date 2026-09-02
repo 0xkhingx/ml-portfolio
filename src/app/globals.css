@@ -10,6 +10,12 @@ html {
   font-size: 17px;
 }
 
+@media (max-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -51,6 +57,25 @@ body {
 .post-body p {
   font-size: 1.0625rem;
   line-height: 1.8;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+@media (max-width: 640px) {
+  .post-body p {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+  .post-body h2 {
+    font-size: 1.45rem;
+  }
+  .post-body h3 {
+    font-size: 1.2rem;
+  }
+  .post-body pre {
+    font-size: 0.8125rem;
+    padding: 1rem;
+  }
 }
 
 .post-body > *:first-child,

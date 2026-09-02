@@ -113,7 +113,7 @@ export function Navbar() {
               : "border-b border-transparent"
           }`}
         >
-          <div className="mx-auto grid w-full max-w-5xl grid-cols-[auto_1fr_auto] items-center px-5 py-4 md:grid-cols-[1fr_auto_1fr] md:px-10">
+          <div className="mx-auto grid w-full max-w-5xl grid-cols-[auto_1fr_auto] items-center gap-2 px-5 py-3.5 sm:py-4 md:grid-cols-[1fr_auto_1fr] md:px-10">
           <div className="flex items-center justify-self-start md:justify-self-end md:pr-10">
             <nav aria-label="Primary" className="hidden items-center gap-12 md:flex">
               {NAV_LEFT.map((link) => (
@@ -130,7 +130,7 @@ export function Navbar() {
 
           <Link href="/" aria-label="Home" className="justify-self-center">
             <motion.span variants={itemVariants} className="block">
-              <Logo className="h-9 w-auto text-foreground" />
+              <Logo className="h-8 w-auto text-foreground sm:h-9" />
             </motion.span>
           </Link>
 

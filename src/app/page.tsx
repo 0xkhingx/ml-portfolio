@@ -8,21 +8,21 @@ const linkHover =
 export default function HomePage() {
   return (
     <div className="relative">
-      <div className="flex min-h-screen flex-col items-center justify-center px-6 md:px-10">
+      <div className="flex min-h-screen flex-col items-center justify-center px-5 pb-24 pt-24 sm:px-6 md:px-10">
         <FadeIn>
-          <p className="font-mono text-sm lowercase tracking-[0.25em] text-foreground/50">
+          <p className="font-mono text-xs lowercase tracking-[0.2em] text-foreground/50 sm:text-sm sm:tracking-[0.25em]">
             ML engineer
           </p>
         </FadeIn>
         <FadeIn delay={0.08} y={16}>
-          <h1 className="mt-4 font-display text-5xl font-medium uppercase text-foreground md:text-7xl">
+          <h1 className="mt-3 text-balance text-center font-display text-[2.5rem] font-medium uppercase leading-[0.9] tracking-tight text-foreground sm:mt-4 sm:text-5xl md:text-7xl">
             Oluwadamilare
           </h1>
         </FadeIn>
         <FadeIn delay={0.16} y={16}>
           <nav
             aria-label="socials"
-            className="mt-10 flex flex-wrap items-center justify-center gap-3 font-mono text-sm lowercase text-foreground/50"
+            className="mt-8 flex flex-wrap items-center justify-center gap-2.5 font-mono text-[13px] lowercase text-foreground/50 sm:mt-10 sm:gap-3 sm:text-sm"
           >
             {SOCIALS.map((social, index) => (
               <Fragment key={social.href}>

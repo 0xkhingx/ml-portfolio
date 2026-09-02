@@ -49,33 +49,33 @@ export default async function WritingPage() {
   const groups = groupByYear(entries);
 
   return (
-    <div className="mx-auto min-h-screen w-full max-w-2xl px-6 pb-24 pt-36 md:pt-44">
+    <div className="mx-auto min-h-screen w-full max-w-2xl px-5 pb-20 pt-28 sm:px-6 sm:pb-24 sm:pt-36 md:pt-44">
       <FadeIn>
-        <p className="text-sm lowercase tracking-[0.25em] text-foreground/50">
+        <p className="text-xs lowercase tracking-[0.2em] text-foreground/50 sm:text-sm sm:tracking-[0.25em]">
           writing
         </p>
-        <h1 className="mt-3 font-heading text-4xl font-medium tracking-tight md:text-5xl">
+        <h1 className="mt-3 text-balance font-heading text-[32px] font-medium leading-[1.05] tracking-tight sm:text-4xl md:text-5xl">
           essays &amp; notes
         </h1>
       </FadeIn>
 
       {groups.length === 0 ? (
-        <p className="mt-16 text-base text-foreground/60">
+        <p className="mt-12 text-pretty text-[15px] leading-relaxed text-foreground/60 sm:mt-16 sm:text-base">
           nothing published yet — first pieces are in progress.
         </p>
       ) : (
-        <div className="mt-14 space-y-16">
+        <div className="mt-10 space-y-12 sm:mt-14 sm:space-y-16">
           {groups.map(([year, posts]) => (
             <section key={year}>
               <FadeIn y={12}>
                 <div className="flex items-center gap-4">
-                  <span className="font-mono text-sm lowercase text-foreground/50">
+                  <span className="font-mono text-xs lowercase text-foreground/50 sm:text-sm">
                     {year}
                   </span>
                   <span className="h-px flex-1 bg-foreground/10" />
                 </div>
               </FadeIn>
-              <div className="mt-8 space-y-10">
+              <div className="mt-6 space-y-8 sm:mt-8 sm:space-y-10">
                 {posts.map((entry, index) => {
                   const rowClasses =
                     "group relative block focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40";
@@ -112,11 +112,11 @@ export default async function WritingPage() {
 function EntryBody({ entry }: { entry: Entry }) {
   return (
     <>
-      <div className="flex items-baseline justify-between gap-6">
-        <h2 className="relative min-w-0 font-heading text-2xl font-medium decoration-[1px] underline-offset-4 group-hover:underline md:text-3xl">
+      <div className="flex items-baseline justify-between gap-4 sm:gap-6">
+        <h2 className="relative min-w-0 text-pretty font-heading text-[22px] font-medium leading-tight decoration-[1px] underline-offset-4 group-hover:underline sm:text-2xl md:text-3xl">
           <span
             aria-hidden="true"
-            className="absolute -left-5 size-1.5 rounded-full bg-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            className="absolute -left-5 hidden size-1.5 rounded-full bg-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:block"
           />
           {entry.title}
         </h2>
@@ -129,7 +129,7 @@ function EntryBody({ entry }: { entry: Entry }) {
           </span>
         )}
       </div>
-      <p className="mt-1.5 flex items-center gap-3 font-mono text-sm lowercase text-foreground/50">
+      <p className="mt-1.5 flex flex-wrap items-center gap-2 font-mono text-xs lowercase text-foreground/50 sm:gap-3 sm:text-sm">
         <span>
           {formatDate(entry.date)} · {entry.minutes} min
         </span>
@@ -137,7 +137,7 @@ function EntryBody({ entry }: { entry: Entry }) {
           <span className="text-foreground/30">· substack</span>
         )}
       </p>
-      <p className="mt-2 line-clamp-2 max-w-xl text-base leading-relaxed text-foreground/60">
+      <p className="mt-2 line-clamp-3 max-w-xl text-pretty text-[15px] leading-[1.65] text-foreground/60 sm:mt-2 sm:line-clamp-2 sm:text-base sm:leading-relaxed">
         {entry.description}
       </p>
     </>
