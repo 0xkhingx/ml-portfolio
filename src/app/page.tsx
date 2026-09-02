@@ -22,9 +22,9 @@ export default function HomePage() {
         <FadeIn delay={0.16} y={16}>
           <nav
             aria-label="socials"
-            className="mt-10 flex items-center gap-3 font-mono text-sm lowercase text-foreground/50"
+            className="mt-10 flex flex-wrap items-center justify-center gap-3 font-mono text-sm lowercase text-foreground/50"
           >
-            {SOCIALS.filter((s) => s.label !== "website").map((social, index) => (
+            {SOCIALS.map((social, index) => (
               <Fragment key={social.href}>
                 {index > 0 && (
                   <span aria-hidden="true" className="text-foreground/25">
@@ -43,31 +43,6 @@ export default function HomePage() {
             ))}
           </nav>
         </FadeIn>
-      </div>
-
-      <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-end gap-x-6 gap-y-4 px-6 pb-20 md:px-10">
-        <nav
-          aria-label="socials footer"
-          className="flex items-center gap-3 font-mono text-sm lowercase text-foreground/50"
-        >
-          {SOCIALS.filter((s) => s.label !== "website").map((social, index) => (
-            <Fragment key={social.href}>
-              {index > 0 && (
-                <span aria-hidden="true" className="text-foreground/25">
-                  ·
-                </span>
-              )}
-              <a
-                href={social.href}
-                target="_blank"
-                rel="noreferrer"
-                className={linkHover}
-              >
-                {social.label}
-              </a>
-            </Fragment>
-          ))}
-        </nav>
       </div>
     </div>
   );
