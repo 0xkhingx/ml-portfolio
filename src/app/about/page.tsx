@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { FadeIn } from "@/components/motion/fade-in";
 import { RESUME_URL } from "@/data/socials";
 import { EXPERIENCE, MANIFESTO, STACK } from "@/data/experience";
@@ -14,13 +15,15 @@ export default function AboutPage() {
         <p className="text-sm lowercase tracking-[0.25em] text-foreground/50">
           about
         </p>
-        <div className="mt-6 size-20 overflow-hidden rounded-full border border-dashed border-foreground/15 bg-foreground/[0.04] md:size-24">
-          {/* TODO: replace inner div with next/image → add `import Image from "next/image"` and use:
-              <Image src="/images/profile.jpg" alt="Portrait" width={96} height={96} className="h-full w-full object-cover" priority />
-              Put your image at public/images/profile.jpg */}
-          <div className="flex h-full w-full items-center justify-center font-mono text-xs lowercase text-foreground/30">
-            image
-          </div>
+        <div className="mt-6 size-20 overflow-hidden rounded-full border border-foreground/10 bg-foreground/[0.04] md:size-24">
+          <Image
+            src="/images/profile.jpg"
+            alt="Portrait of Oluwadamilare"
+            width={96}
+            height={96}
+            className="h-full w-full object-cover"
+            priority
+          />
         </div>
         <h1 className="mt-6 font-heading text-4xl font-medium tracking-tight md:text-5xl">
           Machine learning,
