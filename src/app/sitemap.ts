@@ -3,7 +3,8 @@ import { getAllPosts } from "@/lib/posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://0xkhingx.vercel.app";
+    process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
+    "https://0xkhingx.vercel.app";
 
   const staticRoutes = ["", "/about", "/work", "/writing", "/contact"].map(
     (route) => ({

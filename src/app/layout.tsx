@@ -32,7 +32,8 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://0xkhingx.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
+  "https://0xkhingx.vercel.app";
 
 export const metadata: Metadata = {
   // TODO: replace with custom domain when purchased — update NEXT_PUBLIC_SITE_URL too
