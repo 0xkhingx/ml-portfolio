@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import Link from "next/link";
 import { FadeIn } from "@/components/motion/fade-in";
-import { NowPlaying } from "@/components/now-playing";
 import { SOCIALS } from "@/data/socials";
 
 const linkHover =
@@ -45,11 +44,10 @@ export default function HomePage() {
         </FadeIn>
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 px-6 pb-20 md:px-10">
-        <NowPlaying />
+      <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-end gap-x-6 gap-y-4 px-6 pb-20 md:px-10">
         <nav
           aria-label="socials"
-          className="ml-auto flex items-center gap-3 font-mono text-sm lowercase text-foreground/50"
+          className="flex items-center gap-3 font-mono text-sm lowercase text-foreground/50"
         >
           {SOCIALS.map((social, index) => (
             <Fragment key={social.href}>

@@ -5,6 +5,7 @@ import {
   Nunito,
   Raleway,
 } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { Navbar } from "@/components/layout/navbar";
 import "./globals.css";
 
@@ -29,6 +30,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  // TODO: replace with custom domain when purchased — update NEXT_PUBLIC_SITE_URL too
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://0xkhingx.vercel.app",
+  ),
   title: {
     default: "0xkhingx",
     template: "%s — 0xkhingx",
@@ -49,6 +54,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col font-sans">
         <Navbar />
         <main className="flex-1">{children}</main>
+        <Analytics />
       </body>
     </html>
   );
