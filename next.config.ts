@@ -6,6 +6,15 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  async redirects() {
+    return [
+      {
+        source: "/work/football-prediction",
+        destination: "/work/matchday",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

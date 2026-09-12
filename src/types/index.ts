@@ -26,9 +26,24 @@ export interface Post {
 }
 
 export interface Project {
+  slug: string;
   name: string;
   description: string;
   href: string;
+  liveUrl?: string;
+  summary: string;
+  challenge: string;
+  approach: string;
+  outcome: string;
+  stack: string[];
+  metrics: string[];
+  theme: {
+    glow: string;
+    wash: string;
+    border: string;
+    chip: string;
+    mark: string;
+  };
 }
 
 export interface Experience {

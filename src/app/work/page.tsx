@@ -1,21 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { FadeIn } from "@/components/motion/fade-in";
 import { PROJECTS } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Work",
 };
-
-function isExternal(href: string): boolean {
-  return !href.startsWith("/");
-}
-
-function hostFor(href: string): string {
-  if (!isExternal(href)) {
-    return "case study";
-  }
-  return new URL(href).host.replace(/^www\./, "");
-}
 
 export default function WorkPage() {
   return (
@@ -31,12 +21,9 @@ export default function WorkPage() {
 
       <div className="mt-10 border-t border-foreground/10 sm:mt-14">
         {PROJECTS.map((project, index) => (
-          <FadeIn key={project.name} delay={index * 0.08} y={16}>
-            <a
-              href={project.href}
-              {...(isExternal(project.href)
-                ? { target: "_blank", rel: "noreferrer" }
-                : {})}
+          <FadeIn key={project.slug} delay={index * 0.08} y={16}>
+            <Link
+              href={`/work/${project.slug}`}
               className="group block border-b border-foreground/10 py-5 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40 sm:py-6 md:py-7"
             >
               <div className="flex items-baseline justify-between gap-4 sm:gap-6">
@@ -49,22 +36,20 @@ export default function WorkPage() {
                     {project.name}
                   </h2>
                   <p className="mt-1 font-mono text-xs lowercase text-foreground/50 sm:text-sm">
-                    {hostFor(project.href)}
+                    case study
                   </p>
                 </div>
-                {isExternal(project.href) && (
-                  <span
-                    aria-hidden="true"
-                    className="hidden shrink-0 font-mono text-sm text-foreground/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:block"
-                  >
-                    ↗
-                  </span>
-                )}
+                <span
+                  aria-hidden="true"
+                  className="hidden shrink-0 font-mono text-sm text-foreground/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:block"
+                >
+                  ↗
+                </span>
               </div>
               <p className="mt-2.5 line-clamp-3 max-w-xl text-pretty text-[15px] leading-[1.65] text-foreground/60 sm:mt-3 sm:line-clamp-2 sm:text-base sm:leading-relaxed">
                 {project.description}
               </p>
-            </a>
+            </Link>
           </FadeIn>
         ))}
       </div>
