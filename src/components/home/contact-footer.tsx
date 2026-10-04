@@ -46,8 +46,8 @@ export function ContactFooter() {
       </section>
 
       <footer aria-label="Footer">
-        <div className="mx-auto w-full max-w-5xl px-5 pb-10 sm:px-6 sm:pb-12">
-          <div className="flex items-center justify-between gap-4 border-t border-foreground/10 pt-5 font-mono text-xs lowercase tracking-wide text-foreground/45">
+        <div className="mx-auto w-full max-w-5xl px-5 pb-12 sm:px-6 sm:pb-14">
+          <div className="flex items-center justify-between gap-4 border-t border-foreground/10 pt-6 font-mono text-xs lowercase tracking-wide text-foreground/45">
             <nav aria-label="Social links" className="flex items-center gap-4">
               {FOOTER_SOCIALS.map((link) => (
                 <a

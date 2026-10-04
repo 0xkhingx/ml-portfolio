@@ -1,12 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { EMAIL, RESUME_URL } from "@/data/socials";
-import { NAV_ALL } from "@/data/nav";
-import { LockedLabel } from "@/components/ui/locked-label";
-import { BookCallTrigger } from "@/components/booking/book-call";
 import { SelectedWork } from "@/components/work/selected-work";
 import { AboutTeaser } from "@/components/about/about-teaser";
 import { Experience } from "@/components/home/experience";
@@ -106,7 +102,7 @@ export default function HomePage() {
             </motion.span>
             <motion.span
               {...fadeUp(0.16)}
-              className="block text-[2.25rem] font-semibold sm:text-[58px]"
+              className="block text-[2.5rem] font-semibold sm:text-[58px]"
             >
               Software Engineer
             </motion.span>
@@ -120,39 +116,8 @@ export default function HomePage() {
             thoughtful digital experiences.
           </motion.p>
 
-          <motion.nav
-            aria-label="Sections"
-            {...fadeUp(0.28)}
-            className="mt-7 flex items-center gap-5 text-sm lowercase tracking-wide text-foreground/50 md:hidden"
-          >
-            {NAV_ALL.map((link) =>
-              link.action === "book-call" ? (
-                <BookCallTrigger
-                  key={link.href}
-                  className="transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
-                >
-                  {link.label}
-                </BookCallTrigger>
-              ) : link.locked ? (
-                <LockedLabel
-                  key={link.href}
-                  label={link.label}
-                  iconClassName="size-3"
-                />
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
-          </motion.nav>
-
-          <motion.div {...fadeUp(0.32)} className="md:hidden">
-            <SocialIcons className="mt-8 flex items-center gap-5" />
+          <motion.div {...fadeUp(0.28)} className="md:hidden">
+            <SocialIcons className="mt-10 flex items-center gap-5" />
           </motion.div>
         </div>
 

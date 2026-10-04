@@ -17,8 +17,8 @@ export function Experience() {
               <div
                 className={
                   index === 0
-                    ? "pb-6 sm:pb-7"
-                    : "border-t border-foreground/10 pb-6 pt-5 sm:pb-7 sm:pt-6"
+                    ? "pb-7 sm:pb-8"
+                    : "border-t border-foreground/10 pb-7 pt-6 sm:pb-8 sm:pt-7"
                 }
               >
                 <p className="font-mono text-xs lowercase text-foreground/45 sm:text-[13px]">
@@ -28,7 +28,7 @@ export function Experience() {
                   <h3 className="font-heading text-xl font-medium tracking-tight text-foreground sm:text-2xl">
                     {entry.org}
                   </h3>
-                  <p className="shrink-0 text-sm lowercase tracking-wide text-foreground/55 sm:text-right">
+                  <p className="shrink-0 text-sm lowercase tracking-wide text-foreground/45 sm:text-right">
                     {entry.role}
                   </p>
                 </div>

@@ -35,7 +35,7 @@ export function AboutTeaser() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-64px" }}
             transition={{ duration: 0.55, delay: 0.1, ease: EASE }}
-            className="absolute bottom-6 right-0 aspect-square w-[40%] overflow-hidden rounded-xl"
+            className="absolute bottom-6 right-0 aspect-square w-[34%] overflow-hidden rounded-xl md:w-[40%]"
           >
             <Image
               src={SECONDARY_PORTRAIT_SRC}

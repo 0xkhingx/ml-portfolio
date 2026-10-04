@@ -1,12 +1,12 @@
 import type { NavLink } from "@/types";
 
 export const NAV_LEFT: NavLink[] = [
-  { label: "work", href: "/work", locked: true },
-  { label: "about", href: "/about", locked: true },
+  { label: "work", href: "/work" },
+  { label: "about", href: "/about" },
 ];
 
 export const NAV_RIGHT: NavLink[] = [
-  { label: "writing", href: "/writing", locked: true },
+  { label: "writing", href: "/writing" },
   { label: "contact", href: "/contact", action: "book-call" },
 ];
 
