@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   // TODO: replace with custom domain when purchased — update NEXT_PUBLIC_SITE_URL too
   metadataBase: new URL(siteUrl),
   title: {
-    default: "0xkhingx",
+    default: "Dre — Software Engineer",
     template: "%s — 0xkhingx",
   },
   description: "ML engineer building models — and the products around them.",
@@ -65,8 +65,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "0xkhingx",
-    title: "0xkhingx",
+    siteName: "Dre — Software Engineer",
+    title: "Dre — Software Engineer",
     description: "ML engineer building models — and the products around them.",
     images: [
       {
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "0xkhingx",
+    title: "Dre — Software Engineer",
     description: "ML engineer building models — and the products around them.",
     creator: "@0xkhingx",
     images: ["/opengraph-image"],

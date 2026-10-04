@@ -18,7 +18,7 @@ export function ContactFooter() {
             <h2 className="mt-3 max-w-md text-balance font-heading text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
               Got an idea, opportunity, or something worth discussing?
             </h2>
-            <div className="mt-4 flex flex-col items-start gap-2.5">
+            <div className="mt-5 flex flex-col items-start gap-2.5">
               <BookCallTrigger className="group/book inline-flex items-center gap-1.5 text-[15px] text-foreground/70 transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40 sm:text-base">
                 Book a call
                 <span
@@ -47,7 +47,7 @@ export function ContactFooter() {
 
       <footer aria-label="Footer">
         <div className="mx-auto w-full max-w-5xl px-5 pb-12 sm:px-6 sm:pb-14">
-          <div className="flex items-center justify-between gap-4 border-t border-foreground/10 pt-6 font-mono text-xs lowercase tracking-wide text-foreground/45">
+          <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-foreground/10 pt-6 font-mono text-xs lowercase tracking-wide text-foreground/45">
             <nav aria-label="Social links" className="flex items-center gap-4">
               {FOOTER_SOCIALS.map((link) => (
                 <a

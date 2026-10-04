@@ -3,12 +3,12 @@ import { EXPERIENCE } from "@/data/experience";
 
 export function Experience() {
   return (
-    <section aria-label="Experience">
+    <section aria-label="Experience" id="experience">
       <div className="mx-auto w-full max-w-5xl px-5 py-16 sm:px-6 sm:py-20">
         <FadeIn>
-          <p className="font-mono text-xs lowercase tracking-[0.2em] text-foreground/50 sm:text-sm">
+          <h2 className="font-mono text-xs font-normal lowercase tracking-[0.2em] text-foreground/50 sm:text-sm">
             03 — experience
-          </p>
+          </h2>
         </FadeIn>
 
         <div className="mt-8 border-b border-foreground/10 sm:mt-10">

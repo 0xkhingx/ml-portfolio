@@ -68,7 +68,7 @@ function SocialIcons({ className }: { className?: string }) {
           {...(external
             ? { target: "_blank", rel: "noreferrer" }
             : {})}
-          className="text-foreground/55 transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
+          className="flex size-11 items-center justify-center text-foreground/55 transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
         >
           <Icon className="size-[19px]" />
         </a>

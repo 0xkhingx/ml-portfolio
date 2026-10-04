@@ -140,7 +140,7 @@ export default function AboutPage() {
             If you&rsquo;re building something interesting, I&rsquo;d like to
             hear about it.
           </p>
-          <div className="mt-4 flex flex-col items-start gap-2.5">
+          <div className="mt-5 flex flex-col items-start gap-2.5">
             <BookCallTrigger className="group/book inline-flex items-center gap-1.5 text-[15px] text-foreground/70 transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40 sm:text-base">
               Book a call
               <span
@@ -167,7 +167,7 @@ export default function AboutPage() {
       </div>
 
       <div className="mx-auto w-full max-w-5xl px-5 pt-12 sm:px-6 sm:pt-14">
-        <div className="flex items-center justify-between gap-4 border-t border-foreground/10 pt-6 font-mono text-xs lowercase tracking-wide text-foreground/45">
+        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-foreground/10 pt-6 font-mono text-xs lowercase tracking-wide text-foreground/45">
           <nav aria-label="Social links" className="flex items-center gap-4">
             {FOOTER_SOCIALS.map((link) => (
               <a

@@ -37,7 +37,7 @@ const ITEMS: StripItem[] = [
   {
     kind: "image",
     src: "/images/about/portrait-secondary.png",
-    alt: "Another portrait of Dre",
+    alt: "",
     width: "w-44 sm:w-52",
   },
   {

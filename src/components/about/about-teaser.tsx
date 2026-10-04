@@ -11,7 +11,7 @@ const SECONDARY_PORTRAIT_SRC = "/images/about/portrait-secondary.png";
 
 export function AboutTeaser() {
   return (
-    <section aria-label="About me" className="overflow-x-clip">
+    <section aria-label="About me" id="about" className="overflow-x-clip">
       <div className="mx-auto grid w-full max-w-5xl grid-cols-1 items-center gap-14 px-5 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-32 md:grid-cols-2 md:gap-12 lg:gap-20">
         <div className="relative mx-auto w-full max-w-md md:mx-0">
           <motion.div
@@ -39,7 +39,7 @@ export function AboutTeaser() {
           >
             <Image
               src={SECONDARY_PORTRAIT_SRC}
-              alt="Another portrait of Dre"
+              alt=""
               fill
               sizes="(max-width: 768px) 40vw, 240px"
               className="object-cover"
