@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { EMAIL, RESUME_URL } from "@/data/socials";
 import { NAV_ALL } from "@/data/nav";
 import { LockedLabel } from "@/components/ui/locked-label";
+import { BookCallTrigger } from "@/components/booking/book-call";
 import { SelectedWork } from "@/components/work/selected-work";
 import { AboutTeaser } from "@/components/about/about-teaser";
 import { Experience } from "@/components/home/experience";
@@ -125,7 +126,14 @@ export default function HomePage() {
             className="mt-7 flex items-center gap-5 text-sm lowercase tracking-wide text-foreground/50 md:hidden"
           >
             {NAV_ALL.map((link) =>
-              link.locked ? (
+              link.action === "book-call" ? (
+                <BookCallTrigger
+                  key={link.href}
+                  className="transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
+                >
+                  {link.label}
+                </BookCallTrigger>
+              ) : link.locked ? (
                 <LockedLabel
                   key={link.href}
                   label={link.label}

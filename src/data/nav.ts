@@ -7,7 +7,7 @@ export const NAV_LEFT: NavLink[] = [
 
 export const NAV_RIGHT: NavLink[] = [
   { label: "writing", href: "/writing", locked: true },
-  { label: "contact", href: "/contact" },
+  { label: "contact", href: "/contact", action: "book-call" },
 ];
 
 export const NAV_ALL: NavLink[] = [...NAV_LEFT, ...NAV_RIGHT];

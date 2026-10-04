@@ -1,4 +1,5 @@
 import { FadeIn } from "@/components/motion/fade-in";
+import { BookCallTrigger } from "@/components/booking/book-call";
 import { EMAIL, SOCIALS } from "@/data/socials";
 
 const FOOTER_SOCIALS = SOCIALS.filter((link) =>
@@ -8,24 +9,38 @@ const FOOTER_SOCIALS = SOCIALS.filter((link) =>
 export function ContactFooter() {
   return (
     <div>
-      <section aria-label="Contact">
+      <section aria-label="Contact" id="contact">
         <div className="mx-auto w-full max-w-5xl px-5 py-16 sm:px-6 sm:py-20">
           <FadeIn>
-            <h2 className="max-w-md text-balance font-heading text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
-              Have something interesting in mind?
+            <p className="font-mono text-xs lowercase tracking-[0.2em] text-foreground/50 sm:text-sm">
+              04 — contact
+            </p>
+            <h2 className="mt-3 max-w-md text-balance font-heading text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
+              Got an idea, opportunity, or something worth discussing?
             </h2>
-            <a
-              href={`mailto:${EMAIL}`}
-              className="group/mail mt-4 inline-flex items-center gap-1.5 text-[15px] text-foreground/70 transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40 sm:text-base"
-            >
-              {EMAIL}
-              <span
-                aria-hidden="true"
-                className="transition-transform duration-200 group-hover/mail:translate-x-0.5 motion-reduce:transform-none"
+            <div className="mt-4 flex flex-col items-start gap-2.5">
+              <BookCallTrigger className="group/book inline-flex items-center gap-1.5 text-[15px] text-foreground/70 transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40 sm:text-base">
+                Book a call
+                <span
+                  aria-hidden="true"
+                  className="transition-transform duration-200 group-hover/book:translate-x-0.5 motion-reduce:transform-none"
+                >
+                  ↗
+                </span>
+              </BookCallTrigger>
+              <a
+                href={`mailto:${EMAIL}`}
+                className="group/mail inline-flex items-center gap-1.5 text-[15px] text-foreground/70 transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40 sm:text-base"
               >
-                ↗
-              </span>
-            </a>
+                Email me
+                <span
+                  aria-hidden="true"
+                  className="transition-transform duration-200 group-hover/mail:translate-x-0.5 motion-reduce:transform-none"
+                >
+                  ↗
+                </span>
+              </a>
+            </div>
           </FadeIn>
         </div>
       </section>

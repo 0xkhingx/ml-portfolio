@@ -12,6 +12,7 @@ import {
 } from "framer-motion";
 import { Logo } from "@/components/ui/logo";
 import { LockedLabel } from "@/components/ui/locked-label";
+import { BookCallTrigger } from "@/components/booking/book-call";
 import { NAV_ALL, NAV_LEFT, NAV_RIGHT } from "@/data/nav";
 import type { NavLink } from "@/types";
 
@@ -28,6 +29,16 @@ const itemVariants: Variants = {
 };
 
 function DesktopNavItem({ link, active }: { link: NavLink; active: boolean }) {
+  if (link.action === "book-call") {
+    return (
+      <motion.span variants={itemVariants} className="block">
+        <BookCallTrigger className="text-sm lowercase tracking-wide text-foreground/55 transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40">
+          {link.label}
+        </BookCallTrigger>
+      </motion.span>
+    );
+  }
+
   if (link.locked) {
     return (
       <motion.span variants={itemVariants} className="block">
@@ -191,7 +202,14 @@ export function Navbar() {
                     ease: EASE,
                   }}
                 >
-                  {link.locked ? (
+                  {link.action === "book-call" ? (
+                    <BookCallTrigger
+                      onClick={closeMenu}
+                      className="text-4xl lowercase tracking-tight text-foreground"
+                    >
+                      {link.label}
+                    </BookCallTrigger>
+                  ) : link.locked ? (
                     <LockedLabel
                       label={link.label}
                       className="text-4xl lowercase tracking-tight"

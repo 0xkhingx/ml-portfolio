@@ -2,6 +2,8 @@ export interface NavLink {
   label: string;
   href: string;
   locked?: boolean;
+  /** Renders an in-place action instead of navigating. */
+  action?: "book-call";
 }
 
 export interface Track {
