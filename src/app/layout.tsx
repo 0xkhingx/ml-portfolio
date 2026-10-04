@@ -2,11 +2,12 @@ import type { Metadata, Viewport } from "next";
 import {
   Bitcount_Ink,
   Geist_Mono,
+  Josefin_Sans,
   Nunito,
-  Raleway,
 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Navbar } from "@/components/layout/navbar";
+import { ThemeProvider } from "@/components/theme/provider";
 import "./globals.css";
 
 const bitcountInk = Bitcount_Ink({
@@ -21,8 +22,8 @@ const nunito = Nunito({
   subsets: ["latin"],
 });
 
-const raleway = Raleway({
-  variable: "--font-raleway",
+const josefinSans = Josefin_Sans({
+  variable: "--font-josefin",
   subsets: ["latin"],
 });
 
@@ -93,11 +94,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${bitcountInk.variable} ${nunito.variable} ${raleway.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${bitcountInk.variable} ${nunito.variable} ${josefinSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
-        <Navbar />
-        <main className="flex-1">{children}</main>
+        <ThemeProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>
