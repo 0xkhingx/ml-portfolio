@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FadeIn } from "@/components/motion/fade-in";
+import {
+  JsonLd,
+  breadcrumbJsonLd,
+  getSiteUrl,
+  projectJsonLd,
+} from "@/components/seo/json-ld";
 import { PROJECTS, getProjectBySlug } from "@/data/projects";
 
 interface ProjectPageProps {
@@ -22,11 +28,20 @@ export async function generateMetadata({
     return {};
   }
 
+  const path = `/work/${project.slug}`;
+
   return {
     title: project.name,
     description: project.summary,
+    alternates: { canonical: path },
     openGraph: {
-      title: project.name,
+      title: `${project.name} — 0xkhingx`,
+      description: project.summary,
+      url: path,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.name} — 0xkhingx`,
       description: project.summary,
     },
   };
@@ -40,8 +55,35 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound();
   }
 
+  const siteUrl = getSiteUrl();
+  const pageUrl = `${siteUrl}/work/${project.slug}`;
+  const sections = [
+    { label: "challenge", body: project.challenge },
+    { label: "approach", body: project.approach },
+    { label: "outcome", body: project.outcome },
+    ...(project.sections ?? []),
+  ];
+
   return (
     <article className="relative overflow-hidden">
+      <JsonLd
+        data={[
+          projectJsonLd({
+            siteUrl,
+            pageUrl,
+            name: project.name,
+            summary: project.summary,
+            stack: project.stack,
+            codeUrl: project.href,
+            liveUrl: project.liveUrl,
+          }),
+          breadcrumbJsonLd(siteUrl, [
+            { name: "Home", path: "/" },
+            { name: "Work", path: "/work" },
+            { name: project.name, path: `/work/${project.slug}` },
+          ]),
+        ]}
+      />
       <div
         className="absolute inset-x-0 top-0 -z-10 h-[32rem]"
         style={{
@@ -114,30 +156,46 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 ))}
               </div>
 
-              <div className="mt-5 space-y-4 text-sm leading-7 text-foreground/70">
-                <p>{project.challenge}</p>
-                <p>{project.approach}</p>
-                <p>{project.outcome}</p>
+              <div
+                className="flex flex-wrap items-center gap-x-4 gap-y-2 border-t pt-5 text-sm text-foreground/55"
+                style={{ borderTopColor: project.theme.border }}
+              >
+                {project.liveUrl ? (
+                  <>
+                    <span className="font-mono text-xs uppercase tracking-[0.18em]">
+                      Live
+                    </span>
+                    <Link
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="underline decoration-foreground/25 underline-offset-4 transition-colors hover:text-foreground"
+                    >
+                      View live product
+                    </Link>
+                    <span aria-hidden="true" className="text-foreground/25">
+                      /
+                    </span>
+                  </>
+                ) : null}
+                <span className="font-mono text-xs uppercase tracking-[0.18em]">
+                  Source
+                </span>
+                <Link
+                  href={project.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline decoration-foreground/25 underline-offset-4 transition-colors hover:text-foreground"
+                >
+                  View repository
+                </Link>
               </div>
             </div>
           </FadeIn>
         </div>
 
         <div className="mt-12 grid gap-4 lg:mt-16 lg:grid-cols-3">
-          {[
-            {
-              label: "challenge",
-              value: project.challenge,
-            },
-            {
-              label: "approach",
-              value: project.approach,
-            },
-            {
-              label: "outcome",
-              value: project.outcome,
-            },
-          ].map((section, index) => (
+          {sections.map((section, index) => (
             <FadeIn key={section.label} delay={0.18 + index * 0.06} y={14}>
               <section
                 className="h-full rounded-[1.25rem] border bg-background/40 p-5"
@@ -147,50 +205,37 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   {section.label}
                 </p>
                 <p className="mt-4 text-pretty text-[15px] leading-[1.75] text-foreground/68">
-                  {section.value}
+                  {section.body}
                 </p>
               </section>
             </FadeIn>
           ))}
         </div>
 
-        <FadeIn delay={0.3} y={14}>
-          <div
-            className="mt-12 flex flex-wrap items-center gap-4 border-t pt-6 text-sm text-foreground/55"
-            style={{ borderTopColor: project.theme.border }}
-          >
-            {project.liveUrl ? (
-              <>
-                <span className="font-mono uppercase tracking-[0.18em]">
-                  Live
-                </span>
-                <Link
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="underline decoration-foreground/25 underline-offset-4 transition-colors hover:text-foreground"
-                >
-                  View live product
-                </Link>
+        {project.relatedPost ? (
+          <FadeIn delay={0.3} y={14}>
+            <div
+              className="mt-12 border-t pt-6"
+              style={{ borderTopColor: project.theme.border }}
+            >
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-foreground/45">
+                further reading
+              </p>
+              <Link
+                href={project.relatedPost.href}
+                className="group/related mt-3 inline-flex items-center gap-1.5 text-[15px] text-foreground/70 transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40 sm:text-base"
+              >
+                {project.relatedPost.title}
                 <span
                   aria-hidden="true"
-                  className="text-foreground/25"
+                  className="transition-transform duration-200 group-hover/related:translate-x-0.5 motion-reduce:transform-none"
                 >
-                  /
+                  ↗
                 </span>
-              </>
-            ) : null}
-            <span className="font-mono uppercase tracking-[0.18em]">Source</span>
-            <Link
-              href={project.href}
-              target="_blank"
-              rel="noreferrer"
-              className="underline decoration-foreground/25 underline-offset-4 transition-colors hover:text-foreground"
-            >
-              View repository
-            </Link>
-          </div>
-        </FadeIn>
+              </Link>
+            </div>
+          </FadeIn>
+        ) : null}
       </div>
     </article>
   );

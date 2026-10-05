@@ -2,11 +2,27 @@ import type { Metadata } from "next";
 import { FadeIn } from "@/components/motion/fade-in";
 import { BookCallTrigger } from "@/components/booking/book-call";
 import { AboutStrip } from "@/components/about/about-strip";
+import {
+  JsonLd,
+  getSiteUrl,
+  profilePageJsonLd,
+} from "@/components/seo/json-ld";
 import { EXPERIENCE } from "@/data/experience";
 import { EMAIL, SOCIALS } from "@/data/socials";
 
 export const metadata: Metadata = {
   title: "About",
+  description:
+    "About Dre, known online as 0xkhingx — Oluwadamilare Ogundele, a software engineer working across web applications, machine learning and product-focused systems.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About — Dre (0xkhingx)",
+    description:
+      "About Dre, known online as 0xkhingx — a software engineer working across the web, machine learning, and product-focused systems.",
+    url: "/about",
+  },
 };
 
 const FOOTER_SOCIALS = SOCIALS.filter((link) =>
@@ -14,8 +30,11 @@ const FOOTER_SOCIALS = SOCIALS.filter((link) =>
 );
 
 export default function AboutPage() {
+  const siteUrl = getSiteUrl();
+
   return (
     <div className="min-h-screen w-full pb-20 sm:pb-24">
+      <JsonLd data={profilePageJsonLd(siteUrl, `${siteUrl}/about`)} />
       <div className="mx-auto w-full max-w-5xl px-5 pt-28 sm:px-6 sm:pt-36 md:pt-44">
         <FadeIn>
           <p className="text-xs lowercase tracking-[0.2em] text-foreground/50 sm:text-sm sm:tracking-[0.25em]">
@@ -25,7 +44,8 @@ export default function AboutPage() {
             I&rsquo;m Dre, and I like building things that actually get used.
           </h1>
           <p className="mt-5 max-w-xl text-pretty text-[15px] leading-relaxed text-foreground/60 sm:mt-6 sm:text-base">
-            Software engineer working across the web, machine learning, and
+            I&rsquo;m Dre, also known online as 0xkhingx — a software
+            engineer working across the web, machine learning, and
             product-focused systems.
           </p>
         </FadeIn>

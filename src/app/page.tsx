@@ -116,6 +116,16 @@ export default function HomePage() {
             thoughtful digital experiences.
           </motion.p>
 
+          <motion.p
+            {...fadeUp(0.26)}
+            className="mt-4 max-w-[520px] text-sm leading-relaxed text-foreground/45 sm:text-[15px]"
+          >
+            I&rsquo;m Dre, known online as 0xkhingx — a software engineer
+            working across web applications, machine learning, and product
+            engineering, from data pipelines and APIs to interfaces and
+            deployment.
+          </motion.p>
+
           <motion.div {...fadeUp(0.28)} className="md:hidden">
             <SocialIcons className="mt-10 flex items-center gap-5" />
           </motion.div>

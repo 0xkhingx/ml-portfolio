@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Navbar } from "@/components/layout/navbar";
+import { JsonLd, personJsonLd, websiteJsonLd } from "@/components/seo/json-ld";
 import { ThemeProvider } from "@/components/theme/provider";
 import "./globals.css";
 
@@ -40,10 +41,11 @@ export const metadata: Metadata = {
   // TODO: replace with custom domain when purchased — update NEXT_PUBLIC_SITE_URL too
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Dre — Software Engineer",
+    default: "Dre (0xkhingx) — Software Engineer",
     template: "%s — 0xkhingx",
   },
-  description: "ML engineer building models — and the products around them.",
+  description:
+    "Dre, known online as 0xkhingx, is a software engineer building end-to-end products across web applications, machine learning and product engineering — Python, TypeScript, React/Next.js, from data pipelines and APIs to interfaces and deployment.",
   alternates: {
     canonical: "/",
   },
@@ -65,22 +67,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Dre — Software Engineer",
-    title: "Dre — Software Engineer",
-    description: "ML engineer building models — and the products around them.",
+    siteName: "Dre (0xkhingx) — Software Engineer",
+    title: "Dre (0xkhingx) — Software Engineer",
+    description:
+      "Dre, known online as 0xkhingx, is a software engineer building end-to-end products across web applications, machine learning and product engineering.",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "0xkhingx — ML engineer",
+        alt: "0xkhingx — Software Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dre — Software Engineer",
-    description: "ML engineer building models — and the products around them.",
+    title: "Dre (0xkhingx) — Software Engineer",
+    description:
+      "Dre, known online as 0xkhingx, is a software engineer building end-to-end products across web applications, machine learning and product engineering.",
     creator: "@0xkhingx",
     images: ["/opengraph-image"],
   },
@@ -97,6 +101,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${bitcountInk.variable} ${nunito.variable} ${josefinSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
+        <JsonLd data={[websiteJsonLd(siteUrl), personJsonLd(siteUrl)]} />
         <ThemeProvider>
           <Navbar />
           <main className="flex-1">{children}</main>

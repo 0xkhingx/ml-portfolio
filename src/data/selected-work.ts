@@ -28,7 +28,7 @@ export const FEATURED_WORK: FeaturedProject[] = [
     index: "01",
     name: "ArchitektureArt",
     thumb: "/images/work/architektureart/thumb-full.png",
-    href: "https://architektureart.xyz",
+    href: "/work/architektureart",
     accent: {
       wash: "rgba(167, 139, 250, 0.08)",
       edge: "rgba(167, 139, 250, 0.18)",
@@ -39,7 +39,7 @@ export const FEATURED_WORK: FeaturedProject[] = [
     index: "02",
     name: "Kynigma",
     thumb: "/images/work/kynigma/thumb-full.png",
-    href: "https://github.com/0xkhingx/enigma",
+    href: "/work/kynigma",
     accent: {
       wash: "rgba(111, 194, 184, 0.08)",
       edge: "rgba(111, 194, 184, 0.18)",
@@ -50,7 +50,7 @@ export const FEATURED_WORK: FeaturedProject[] = [
     index: "03",
     name: "Matchday",
     thumb: "/images/work/matchday/thumb-full.png",
-    href: "https://matchday.pxxl.click/",
+    href: "/work/matchday",
     accent: {
       wash: "rgba(122, 162, 247, 0.08)",
       edge: "rgba(122, 162, 247, 0.18)",

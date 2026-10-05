@@ -4,7 +4,8 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "0xkhingx",
     short_name: "0xkhingx",
-    description: "ML engineer building models — and the products around them.",
+    description:
+      "Dre (0xkhingx) — software engineer building end-to-end products across the web and machine learning.",
     start_url: "/",
     display: "standalone",
     background_color: "#121110",

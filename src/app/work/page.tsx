@@ -4,6 +4,17 @@ import { WorkList } from "@/components/work/work-list";
 
 export const metadata: Metadata = {
   title: "Work",
+  description:
+    "Selected work by Dre (0xkhingx) — end-to-end products and experiments across software engineering, the web, and machine learning: Matchday, ArchitektureArt, Kynigma, Moodmix, and more.",
+  alternates: {
+    canonical: "/work",
+  },
+  openGraph: {
+    title: "Work — Dre (0xkhingx)",
+    description:
+      "Products, experiments, and systems built by Dre (0xkhingx) across software engineering, the web, and machine learning.",
+    url: "/work",
+  },
 };
 
 export default function WorkPage() {

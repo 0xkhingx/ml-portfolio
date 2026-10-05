@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "nodejs";
 
-export const alt = "0xkhingx — ML engineer";
+export const alt = "0xkhingx — Software Engineer";
 export const size = {
   width: 1200,
   height: 630,
@@ -33,7 +33,7 @@ export default async function Image() {
             fontFamily: "monospace",
           }}
         >
-          0xkhingx · ml engineer
+          0xkhingx · software engineer
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           <div
@@ -57,7 +57,7 @@ export default async function Image() {
               lineHeight: 1.4,
             }}
           >
-            ML engineer building models — and the products around them.
+            Software engineer building end-to-end products across the web and machine learning.
           </div>
         </div>
         <div

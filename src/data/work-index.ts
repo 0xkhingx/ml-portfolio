@@ -25,6 +25,8 @@ export interface WorkItem {
 }
 
 const META: Record<string, { categories: WorkCategory[]; year?: string }> = {
+  architektureart: { categories: ["web"], year: "2026" },
+  kynigma: { categories: ["web"] },
   "mnist-nn-scratch": { categories: ["ml", "experiments"] },
   "nigerian-lang-classifier": { categories: ["ml"] },
   moodmix: { categories: ["ml"], year: "2026" },
@@ -33,31 +35,11 @@ const META: Record<string, { categories: WorkCategory[]; year?: string }> = {
 };
 
 const COVERS: Record<string, string> = {
+  architektureart: "/images/work/architektureart/thumb-full.png",
+  kynigma: "/images/work/kynigma/thumb-full.png",
   matchday: "/images/work/matchday/thumb-full.png",
   moodmix: "/images/work/moodmix/thumb-full.png",
 };
-
-const EXTERNAL_ITEMS: WorkItem[] = [
-  {
-    slug: "architektureart",
-    name: "ArchitektureArt",
-    blurb: "A gallery site for architectural art — landmarks reimagined as collectible pieces.",
-    categories: ["web"],
-    year: "2026",
-    cover: "/images/work/architektureart/thumb-full.png",
-    href: "https://architektureart.xyz",
-    external: true,
-  },
-  {
-    slug: "kynigma",
-    name: "Kynigma",
-    blurb: "Studio site for a two-person design and engineering studio.",
-    categories: ["web"],
-    cover: "/images/work/kynigma/thumb-full.png",
-    href: "https://github.com/0xkhingx/enigma",
-    external: true,
-  },
-];
 
 const ORDER = [
   "architektureart",
@@ -80,7 +62,7 @@ const PROJECT_ITEMS: WorkItem[] = PROJECTS.map((project) => ({
 }));
 
 const BY_SLUG = new Map<string, WorkItem>(
-  [...EXTERNAL_ITEMS, ...PROJECT_ITEMS].map((item) => [item.slug, item]),
+  PROJECT_ITEMS.map((item) => [item.slug, item]),
 );
 
 export const WORK_ITEMS: WorkItem[] = ORDER.map((slug) => BY_SLUG.get(slug)).filter(

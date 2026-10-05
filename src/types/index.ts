@@ -28,6 +28,11 @@ export interface Post {
   minutes: number;
 }
 
+export interface ProjectSection {
+  label: string;
+  body: string;
+}
+
 export interface Project {
   slug: string;
   name: string;
@@ -38,6 +43,10 @@ export interface Project {
   challenge: string;
   approach: string;
   outcome: string;
+  /** Extra case-study sections (methodology, trade-offs, what's next…). */
+  sections?: ProjectSection[];
+  /** Link to a related essay in /writing. */
+  relatedPost?: { title: string; href: string };
   stack: string[];
   metrics: string[];
   theme: {

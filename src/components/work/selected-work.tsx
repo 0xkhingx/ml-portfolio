@@ -64,8 +64,9 @@ export function SelectedWork() {
             <motion.a
               key={project.slug}
               href={project.href}
-              target="_blank"
-              rel="noreferrer"
+              {...(project.href.startsWith("http")
+                ? { target: "_blank", rel: "noreferrer" }
+                : {})}
               aria-label={`View ${project.name}`}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
