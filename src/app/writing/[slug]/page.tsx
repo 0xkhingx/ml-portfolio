@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FadeIn } from "@/components/motion/fade-in";
+import { ShareButtons } from "@/components/writing/share-buttons";
 import { renderMarkdown } from "@/lib/markdown";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import { formatDate } from "@/lib/post-utils";
@@ -24,7 +25,25 @@ export async function generateMetadata({
     return {};
   }
 
-  return { title: result.post.title, description: result.post.description };
+  const path = `/writing/${result.post.slug}`;
+
+  return {
+    title: result.post.title,
+    description: result.post.description,
+    alternates: { canonical: path },
+    openGraph: {
+      type: "article",
+      title: result.post.title,
+      description: result.post.description,
+      url: path,
+      publishedTime: result.post.date,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: result.post.title,
+      description: result.post.description,
+    },
+  };
 }
 
 export default async function WritingPostPage({
@@ -68,6 +87,7 @@ export default async function WritingPostPage({
           className="post-body mt-8 sm:mt-10"
           dangerouslySetInnerHTML={{ __html: html }}
         />
+        <ShareButtons title={post.title} />
       </FadeIn>
     </div>
   );
