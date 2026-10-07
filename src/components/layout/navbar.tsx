@@ -161,7 +161,7 @@ export function Navbar() {
           animate={{ y: hidden && !open ? "-110%" : "0%" }}
           transition={{ duration: 0.35, ease: EASE }}
         >
-          <div className="mx-auto grid w-full max-w-3xl grid-cols-[auto_1fr_auto] items-center gap-2 px-5 py-4 sm:px-6 md:grid-cols-[1fr_auto_1fr]">
+          <div className="mx-auto grid w-full max-w-3xl grid-cols-[1fr_auto_1fr] items-center gap-2 px-5 py-4 sm:px-6">
             <div className="flex items-center justify-self-start md:justify-self-end md:pr-10">
               <nav
                 aria-label="Primary"
