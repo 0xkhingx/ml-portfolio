@@ -49,39 +49,53 @@ const ITEMS: StripItem[] = [
 ];
 
 /**
- * A shallow, full-bleed band of work + personal imagery.
- * No cards, no captions — just a visual glimpse.
+ * A shallow, full-bleed band of work + personal imagery that drifts
+ * continuously and loops seamlessly. No cards, no captions, no controls —
+ * just a visual glimpse. Pauses on hover/focus; static when the visitor
+ * prefers reduced motion. The second copy is hidden from assistive tech.
  * To add a code or research screenshot later, append an entry above.
  */
 export function AboutStrip() {
   return (
-    <div className="overflow-x-auto">
-      <div className="flex h-44 w-max gap-2 px-5 sm:px-6 md:h-52">
-        {ITEMS.map((item, index) => (
-          <div
-            key={item.kind === "image" ? item.src : `logo-${index}`}
-            className={`relative h-full flex-none overflow-hidden rounded-[3px] ${item.width}`}
-          >
-            {item.kind === "image" ? (
-              <Image
-                src={item.src}
-                alt={item.alt}
-                fill
-                sizes="(max-width: 768px) 50vw, 320px"
-                className="object-cover"
-              />
-            ) : (
-              <div
-                aria-label="0xkhingx logo"
-                role="img"
-                className="flex h-full w-full items-center justify-center bg-foreground/[0.04]"
-              >
-                <Logo className="h-12 w-auto text-foreground" />
-              </div>
-            )}
-          </div>
-        ))}
+    <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+      <div className="strip-marquee flex w-max">
+        <StripCopy />
+        <StripCopy hidden />
       </div>
+    </div>
+  );
+}
+
+function StripCopy({ hidden = false }: { hidden?: boolean }) {
+  return (
+    <div
+      aria-hidden={hidden || undefined}
+      className="flex h-44 flex-none gap-2 pr-2 md:h-52"
+    >
+      {ITEMS.map((item, index) => (
+        <div
+          key={`${item.kind === "image" ? item.src : `logo-${index}`}${hidden ? "-copy" : ""}`}
+          className={`relative h-full flex-none overflow-hidden rounded-[3px] ${item.width}`}
+        >
+          {item.kind === "image" ? (
+            <Image
+              src={item.src}
+              alt={hidden ? "" : item.alt}
+              fill
+              sizes="(max-width: 768px) 50vw, 320px"
+              className="object-cover"
+            />
+          ) : (
+            <div
+              aria-label="0xkhingx logo"
+              role="img"
+              className="flex h-full w-full items-center justify-center bg-foreground/[0.04]"
+            >
+              <Logo className="h-12 w-auto text-foreground" />
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   );
 }

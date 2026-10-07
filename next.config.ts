@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         destination: "/work/matchday",
         permanent: true,
       },
+      {
+        source: "/work/ai-code-reviewer",
+        destination: "/work/firstpass",
+        permanent: true,
+      },
     ];
   },
   async headers() {

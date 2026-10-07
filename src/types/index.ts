@@ -33,13 +33,41 @@ export interface ProjectSection {
   body: string;
 }
 
+/** One editorial section of a case study. `heading` is rendered as a real
+    `<h2>` so every section carries semantic, retrievable meaning. */
+export interface CaseStudyBlock {
+  heading: string;
+  body: string;
+}
+
 export interface Project {
   slug: string;
   name: string;
   description: string;
-  href: string;
+  /** Repository URL. Omit when the source is private/unpublished — the
+      case-study page then hides the "View repository" link instead of
+      pointing at a 404. */
+  href?: string;
   liveUrl?: string;
   summary: string;
+  /** One strong sentence under the title — the 10-second pitch. */
+  tagline?: string;
+  /** Quiet hero metadata. */
+  year?: string;
+  role?: string;
+  categories?: string[];
+  /** Path under /public for the full-width hero visual. */
+  cover?: string;
+  /** Real product screenshots shown inside the story. When present, the
+      case-study page renders these instead of dashed placeholders. */
+  gallery?: { src: string; alt: string; caption?: string }[];
+  /** Ordered pipeline shown as Data ↓ Features ↓ Model ↓ API ↓ Interface. */
+  architecture?: string[];
+  /** Editorial story sections with semantic headings. Preferred over the
+      legacy challenge/approach/outcome cards when present. */
+  narrative?: CaseStudyBlock[];
+  /** Authored closing note: what was learned / what comes next. */
+  reflection?: string;
   challenge: string;
   approach: string;
   outcome: string;

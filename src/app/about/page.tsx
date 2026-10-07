@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { FadeIn } from "@/components/motion/fade-in";
+import { RevealText } from "@/components/motion/reveal-text";
 import { BookCallTrigger } from "@/components/booking/book-call";
 import { AboutStrip } from "@/components/about/about-strip";
 import {
@@ -71,23 +72,9 @@ export default function AboutPage() {
 
         <FadeIn delay={0.12} y={16}>
           <div className="max-w-xl space-y-5 text-pretty text-[15px] leading-[1.75] text-foreground/70 sm:text-base">
-            <p>
-              I got into software because I liked the idea that something could
-              begin as a thought and end up as something another person could
-              actually use.
-            </p>
-            <p>
-              Most of my work sits somewhere between software engineering,
-              machine learning and the web. I like understanding how things
-              work underneath, but I care just as much about whether the final
-              product feels clear and considered.
-            </p>
-            <p>
-              Lately I&rsquo;ve been spending more time building complete
-              products rather than isolated experiments — taking ideas from
-              rough concepts through implementation, interface decisions and
-              deployment.
-            </p>
+            <RevealText text="I got into software because I liked the idea that something could begin as a thought and end up as something another person could actually use." />
+            <RevealText text="Most of my work sits somewhere between software engineering, machine learning and the web. I like understanding how things work underneath, but I care just as much about whether the final product feels clear and considered." />
+            <RevealText text="Lately I've been spending more time building complete products rather than isolated experiments — taking ideas from rough concepts through implementation, interface decisions and deployment." />
           </div>
         </FadeIn>
       </div>
@@ -106,13 +93,7 @@ export default function AboutPage() {
 
         <FadeIn delay={0.12} y={16}>
           <div className="max-w-xl space-y-5 text-pretty text-[15px] leading-[1.75] text-foreground/70 sm:text-base">
-            <p>
-              Outside the editor I care about how things look and feel —
-              architecture, digital art, and interfaces worth staring at.
-              ArchitektureArt is what that looks like when I build it, and
-              Moodmix exists because I wanted my playlists to keep up with my
-              mood.
-            </p>
+            <RevealText text="Outside the editor I care about how things look and feel — architecture, digital art, and interfaces worth staring at. ArchitektureArt is what that looks like when I build it, and Moodmix exists because I wanted my playlists to keep up with my mood." />
           </div>
         </FadeIn>
       </div>

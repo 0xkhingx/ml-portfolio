@@ -37,6 +37,9 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
   "https://0xkhingx.vercel.app";
 
+const googleVerification =
+  process.env.GOOGLE_SITE_VERIFICATION?.trim() || undefined;
+
 export const metadata: Metadata = {
   // TODO: replace with custom domain when purchased — update NEXT_PUBLIC_SITE_URL too
   metadataBase: new URL(siteUrl),
@@ -52,6 +55,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Oluwadamilare Ogundele", url: siteUrl }],
   creator: "Oluwadamilare Ogundele",
   publisher: "0xkhingx",
+  ...(googleVerification
+    ? { verification: { google: googleVerification } }
+    : {}),
   robots: {
     index: true,
     follow: true,

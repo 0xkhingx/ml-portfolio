@@ -30,6 +30,29 @@ body {
   color: var(--foreground);
 }
 
+/* About page image band: slow seamless drift. The track holds two
+   identical copies side by side, so translating -50% loops invisibly. */
+@keyframes strip-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.strip-marquee {
+  animation: strip-marquee 45s linear infinite;
+}
+
+.strip-marquee:hover,
+.strip-marquee:focus-within {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .strip-marquee {
+    animation: none;
+  }
+}
+
 .post-body {
   color: color-mix(in srgb, var(--foreground) 80%, transparent);
 }

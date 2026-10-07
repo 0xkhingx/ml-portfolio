@@ -32,6 +32,7 @@ const META: Record<string, { categories: WorkCategory[]; year?: string }> = {
   moodmix: { categories: ["ml"], year: "2026" },
   "chew-copilot": { categories: ["experiments"] },
   matchday: { categories: ["ml", "web"], year: "2026" },
+  "firstpass": { categories: ["experiments"], year: "2026" },
 };
 
 const COVERS: Record<string, string> = {
@@ -39,6 +40,7 @@ const COVERS: Record<string, string> = {
   kynigma: "/images/work/kynigma/thumb-full.png",
   matchday: "/images/work/matchday/thumb-full.png",
   moodmix: "/images/work/moodmix/thumb-full.png",
+  firstpass: "/images/work/firstpass/showcase.png",
 };
 
 const ORDER = [
@@ -49,6 +51,7 @@ const ORDER = [
   "nigerian-lang-classifier",
   "chew-copilot",
   "mnist-nn-scratch",
+  "firstpass",
 ];
 
 const PROJECT_ITEMS: WorkItem[] = PROJECTS.map((project) => ({

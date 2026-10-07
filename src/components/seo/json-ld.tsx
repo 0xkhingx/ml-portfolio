@@ -71,7 +71,7 @@ interface ProjectJsonLdInput {
   name: string;
   summary: string;
   stack: string[];
-  codeUrl: string;
+  codeUrl?: string;
   liveUrl?: string;
 }
 
@@ -92,7 +92,7 @@ export function projectJsonLd({
     name,
     description: summary,
     programmingLanguage: stack,
-    codeRepository: codeUrl,
+    ...(codeUrl ? { codeRepository: codeUrl } : {}),
     ...(liveUrl ? { codeSampleType: "live product", targetProduct: liveUrl } : {}),
     author: {
       "@id": `${siteUrl}${PERSON_ID}`,

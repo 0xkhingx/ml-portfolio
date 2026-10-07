@@ -30,8 +30,8 @@ export const FEATURED_WORK: FeaturedProject[] = [
     thumb: "/images/work/architektureart/thumb-full.png",
     href: "/work/architektureart",
     accent: {
-      wash: "rgba(167, 139, 250, 0.08)",
-      edge: "rgba(167, 139, 250, 0.18)",
+      wash: "rgba(201, 154, 75, 0.08)",
+      edge: "rgba(201, 154, 75, 0.2)",
     },
   },
   {
