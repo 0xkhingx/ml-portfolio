@@ -13,10 +13,19 @@ import {
 import { Logo } from "@/components/ui/logo";
 import { LockedLabel } from "@/components/ui/locked-label";
 import { BookCallTrigger } from "@/components/booking/book-call";
-import { NAV_ALL, NAV_LEFT, NAV_RIGHT } from "@/data/nav";
+import { NAV_LEFT, NAV_RIGHT } from "@/data/nav";
+import { EMAIL, RESUME_URL, SOCIALS } from "@/data/socials";
 import type { NavLink } from "@/types";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
+/** Editorial order for the large mobile menu: Work → Writing → About → Contact. */
+const MOBILE_PRIMARY: NavLink[] = [
+  { label: "work", href: "/work" },
+  { label: "writing", href: "/writing" },
+  { label: "about", href: "/about" },
+  { label: "contact", href: "/contact", action: "book-call" },
+];
 
 const headerVariants: Variants = {
   hidden: {},
@@ -25,6 +34,34 @@ const headerVariants: Variants = {
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: -6 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
+};
+
+const overlayVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.3, ease: "easeOut" } },
+  exit: { opacity: 0, transition: { duration: 0.22, ease: "easeOut" } },
+};
+
+const panelVariants: Variants = {
+  hidden: { opacity: 0, y: 28, scale: 0.985 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.45, ease: EASE },
+  },
+  exit: { opacity: 0, y: 12, scale: 0.99, transition: { duration: 0.22 } },
+};
+
+const listVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.07, delayChildren: 0.12 } },
+  exit: {},
+};
+
+const rowVariants: Variants = {
+  hidden: { opacity: 0, y: 16 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
 };
 
@@ -94,6 +131,10 @@ export function Navbar() {
   }, [open]);
 
   useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
     if (!open) return;
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
@@ -104,7 +145,9 @@ export function Navbar() {
 
   const closeMenu = () => setOpen(false);
   const isActive = (href: string) =>
-    pathname === href || (href !== "/" && pathname.startsWith(href));
+    href === "/contact"
+      ? false
+      : pathname === href || (href !== "/" && pathname.startsWith(href));
 
   return (
     <>
@@ -162,18 +205,28 @@ export function Navbar() {
                 aria-expanded={open}
                 aria-controls="mobile-menu"
                 aria-label={open ? "Close menu" : "Open menu"}
-                className="relative flex size-9 flex-col items-center justify-center gap-1.5 text-foreground md:hidden"
+                className="relative flex h-9 min-w-9 items-center justify-center gap-2.5 text-foreground md:hidden"
               >
-                <motion.span
-                  animate={open ? { rotate: 45, y: 3.5 } : { rotate: 0, y: 0 }}
-                  transition={{ duration: 0.25, ease: EASE }}
-                  className="block h-px w-5 bg-current"
-                />
-                <motion.span
-                  animate={open ? { rotate: -45, y: -3.5 } : { rotate: 0, y: 0 }}
-                  transition={{ duration: 0.25, ease: EASE }}
-                  className="block h-px w-5 bg-current"
-                />
+                <span
+                  aria-hidden="true"
+                  className="text-xs lowercase tracking-[0.18em] text-foreground/60"
+                >
+                  {open ? "close" : "menu"}
+                </span>
+                <span className="relative flex w-5 flex-col items-center justify-center gap-1.5">
+                  <motion.span
+                    animate={open ? { rotate: 45, y: 3.5 } : { rotate: 0, y: 0 }}
+                    transition={{ duration: 0.25, ease: EASE }}
+                    className="block h-px w-5 bg-current"
+                  />
+                  <motion.span
+                    animate={
+                      open ? { rotate: -45, y: -3.5 } : { rotate: 0, y: 0 }
+                    }
+                    transition={{ duration: 0.25, ease: EASE }}
+                    className="block h-px w-5 bg-current"
+                  />
+                </span>
               </button>
             </div>
           </div>
@@ -182,52 +235,142 @@ export function Navbar() {
 
       <AnimatePresence>
         {open ? (
-          <motion.div
+          <div
             id="mobile-menu"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-background md:hidden"
+            className="fixed inset-0 z-40 flex flex-col px-3 pt-[68px] pb-[max(0.75rem,env(safe-area-inset-bottom))] md:hidden"
           >
-            <nav aria-label="Mobile" className="flex flex-col items-center gap-8">
-              {NAV_ALL.map((link, index) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    delay: 0.08 + index * 0.06,
-                    duration: 0.4,
-                    ease: EASE,
-                  }}
+            <motion.div
+              variants={overlayVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              aria-hidden="true"
+              onClick={closeMenu}
+              className="absolute inset-0 bg-black/60 backdrop-blur-md"
+            />
+            <motion.div
+              variants={panelVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="relative flex min-h-0 w-full flex-1 flex-col overflow-hidden rounded-[28px] border border-white/10 bg-[#211f1d]/95 shadow-[0_24px_80px_-16px_rgba(0,0,0,0.7)]"
+            >
+              <motion.nav
+                aria-label="Mobile"
+                variants={listVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                className="min-h-0 flex-1 overflow-y-auto px-7 pt-3 sm:px-8"
+              >
+                <ul className="divide-y divide-white/8">
+                  {MOBILE_PRIMARY.map((link, index) => {
+                    const active =
+                      link.action !== "book-call" && isActive(link.href);
+                    const row = (
+                      <span className="group flex w-full items-baseline justify-between gap-4 py-5 text-left sm:py-6">
+                        <span
+                          className={`font-heading text-[clamp(2.1rem,9.5vw,2.9rem)] leading-[1.05] font-semibold tracking-tight transition-colors duration-200 ${
+                            active
+                              ? "text-foreground"
+                              : "text-foreground/90 group-active:text-foreground"
+                          }`}
+                        >
+                          {link.label}
+                        </span>
+                        <span className="flex shrink-0 items-center gap-2.5">
+                          <span
+                            aria-hidden="true"
+                            className="font-mono text-[11px] tracking-widest text-foreground/35"
+                          >
+                            {String(index + 1).padStart(2, "0")}
+                          </span>
+                          <span
+                            aria-hidden="true"
+                            className={`size-1.5 rounded-full transition-colors duration-200 ${
+                              active ? "bg-foreground" : "bg-foreground/20"
+                            }`}
+                          />
+                        </span>
+                      </span>
+                    );
+                    return (
+                      <motion.li key={link.href} variants={rowVariants}>
+                        {link.action === "book-call" ? (
+                          <BookCallTrigger
+                            onClick={closeMenu}
+                            className="block w-full focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
+                          >
+                            {row}
+                          </BookCallTrigger>
+                        ) : link.locked ? (
+                          <LockedLabel
+                            label={link.label}
+                            className="w-full py-5 font-heading text-[clamp(2.1rem,9.5vw,2.9rem)] leading-[1.05] font-semibold tracking-tight sm:py-6"
+                            iconClassName="size-5"
+                          />
+                        ) : (
+                          <Link
+                            href={link.href}
+                            onClick={closeMenu}
+                            aria-current={active ? "page" : undefined}
+                            className="block focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
+                          >
+                            {row}
+                          </Link>
+                        )}
+                      </motion.li>
+                    );
+                  })}
+                </ul>
+              </motion.nav>
+
+              <motion.div
+                variants={rowVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                className="shrink-0 border-t border-white/8 px-7 pt-5 pb-5 sm:px-8"
+              >
+                <p className="font-mono text-[11px] tracking-[0.22em] text-foreground/35 uppercase">
+                  elsewhere
+                </p>
+                <nav
+                  aria-label="Social"
+                  className="mt-3 flex flex-wrap gap-x-5 gap-y-2.5"
                 >
-                  {link.action === "book-call" ? (
-                    <BookCallTrigger
+                  {SOCIALS.map((social) => (
+                    <a
+                      key={social.href}
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
                       onClick={closeMenu}
-                      className="text-4xl lowercase tracking-tight text-foreground"
+                      className="text-sm lowercase tracking-wide text-foreground/60 transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
                     >
-                      {link.label}
-                    </BookCallTrigger>
-                  ) : link.locked ? (
-                    <LockedLabel
-                      label={link.label}
-                      className="text-4xl lowercase tracking-tight"
-                      iconClassName="size-5"
-                    />
-                  ) : (
-                    <Link
-                      href={link.href}
-                      onClick={closeMenu}
-                      className="text-4xl lowercase tracking-tight text-foreground"
-                    >
-                      {link.label}
-                    </Link>
-                  )}
-                </motion.div>
-              ))}
-            </nav>
-          </motion.div>
+                      {social.label}
+                    </a>
+                  ))}
+                  <a
+                    href={RESUME_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={closeMenu}
+                    className="text-sm lowercase tracking-wide text-foreground/60 transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
+                  >
+                    resume
+                  </a>
+                  <a
+                    href={`mailto:${EMAIL}`}
+                    onClick={closeMenu}
+                    className="text-sm lowercase tracking-wide text-foreground/60 transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
+                  >
+                    email
+                  </a>
+                </nav>
+              </motion.div>
+            </motion.div>
+          </div>
         ) : null}
       </AnimatePresence>
     </>
