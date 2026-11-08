@@ -27,7 +27,7 @@ export function SelectedWork() {
         </div>
 
         <div className="mt-12 md:mt-16">
-          <ShowcaseList projects={FEATURED} />
+          <ShowcaseList projects={FEATURED} maxShots={4} />
         </div>
       </div>
     </section>
