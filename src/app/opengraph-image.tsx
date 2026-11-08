@@ -19,7 +19,9 @@ export default async function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#121110",
+          backgroundColor: "#fffdf6",
+          backgroundImage:
+            "radial-gradient(circle at 0% 0%, rgba(226,212,224,0.9), transparent 55%), radial-gradient(circle at 100% 100%, rgba(148,154,177,0.45), transparent 55%)",
           padding: "56px",
         }}
       >
@@ -29,7 +31,7 @@ export default async function Image() {
             fontSize: 14,
             letterSpacing: "0.2em",
             textTransform: "lowercase",
-            color: "rgba(236,234,230,0.5)",
+            color: "#7c7e9d",
             fontFamily: "monospace",
           }}
         >
@@ -42,7 +44,7 @@ export default async function Image() {
               fontSize: 72,
               fontWeight: 600,
               letterSpacing: "-0.03em",
-              color: "#eceae6",
+              color: "#2b3049",
               lineHeight: 1,
             }}
           >
@@ -52,7 +54,7 @@ export default async function Image() {
             style={{
               display: "flex",
               fontSize: 22,
-              color: "rgba(236,234,230,0.7)",
+              color: "#4c5372",
               maxWidth: 640,
               lineHeight: 1.4,
             }}
@@ -65,7 +67,7 @@ export default async function Image() {
             display: "flex",
             gap: 12,
             fontSize: 13,
-            color: "rgba(236,234,230,0.4)",
+            color: "#7c7e9d",
             fontFamily: "monospace",
             textTransform: "lowercase",
           }}

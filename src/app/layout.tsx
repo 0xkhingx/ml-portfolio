@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Navbar } from "@/components/layout/navbar";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { JsonLd, personJsonLd, websiteJsonLd } from "@/components/seo/json-ld";
 import { ThemeProvider } from "@/components/theme/provider";
 import "./globals.css";
@@ -97,7 +98,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#121110",
+  themeColor: "#fffdf6",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -111,6 +112,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ThemeProvider>
           <Navbar />
           <main className="flex-1">{children}</main>
+          <SiteFooter />
         </ThemeProvider>
         <Analytics />
       </body>

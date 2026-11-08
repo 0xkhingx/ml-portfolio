@@ -38,7 +38,7 @@ const META: Record<string, { categories: WorkCategory[]; year?: string }> = {
 const COVERS: Record<string, string> = {
   architektureart: "/images/work/architektureart/thumb-full.png",
   kynigma: "/images/work/kynigma/thumb-full.png",
-  matchday: "/images/work/matchday/thumb-full.png",
+  matchday: "/images/work/matchday/rail/01-v2.webp",
   moodmix: "/images/work/moodmix/thumb-full.png",
   firstpass: "/images/work/firstpass/showcase.png",
 };

@@ -4,6 +4,8 @@ export interface NavLink {
   locked?: boolean;
   /** Renders an in-place action instead of navigating. */
   action?: "book-call";
+  /** Opens in a new tab (e.g. the résumé PDF). */
+  external?: boolean;
 }
 
 export interface Track {

@@ -40,14 +40,12 @@ export function ShareButtons({ title }: ShareButtonsProps) {
   }
 
   const linkClasses =
-    "inline-flex items-center gap-2 border border-foreground/15 px-3 py-2 font-mono text-xs lowercase text-foreground/70 transition-colors hover:border-foreground/30 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-foreground/40";
+    "inline-flex items-center gap-1.5 py-1 text-sm text-ink underline decoration-mist underline-offset-4 transition-colors hover:text-foreground hover:decoration-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-ink";
 
   return (
-    <div className="mt-12 border-t border-foreground/10 pt-6 sm:mt-16">
-      <p className="font-mono text-xs lowercase tracking-[0.2em] text-foreground/50">
-        share this
-      </p>
-      <div className="mt-4 flex flex-wrap gap-2">
+    <div className="mt-16 flex flex-wrap items-center gap-x-5 gap-y-2 sm:mt-20">
+      <p className="text-sm text-ink">Share</p>
+      <div className="contents">
         <a
           href={url ? `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}` : undefined}
           target="_blank"

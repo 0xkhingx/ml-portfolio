@@ -19,11 +19,10 @@ import type { NavLink } from "@/types";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-/** Editorial order for the large mobile menu: Work → Writing → About → Contact. */
+/** Editorial order for the large mobile menu: Work → Writing → Contact. */
 const MOBILE_PRIMARY: NavLink[] = [
   { label: "work", href: "/work" },
   { label: "writing", href: "/writing" },
-  { label: "about", href: "/about" },
   { label: "contact", href: "/contact", action: "book-call" },
 ];
 
@@ -69,9 +68,24 @@ function DesktopNavItem({ link, active }: { link: NavLink; active: boolean }) {
   if (link.action === "book-call") {
     return (
       <motion.span variants={itemVariants} className="block">
-        <BookCallTrigger className="text-sm lowercase tracking-wide text-foreground/55 transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40">
+        <BookCallTrigger className="text-base lowercase lg:text-lg text-ink transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ink">
           {link.label}
         </BookCallTrigger>
+      </motion.span>
+    );
+  }
+
+  if (link.external) {
+    return (
+      <motion.span variants={itemVariants} className="block">
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noreferrer"
+          className="text-base lowercase lg:text-lg text-ink transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ink"
+        >
+          {link.label}
+        </a>
       </motion.span>
     );
   }
@@ -81,7 +95,7 @@ function DesktopNavItem({ link, active }: { link: NavLink; active: boolean }) {
       <motion.span variants={itemVariants} className="block">
         <LockedLabel
           label={link.label}
-          className="text-sm lowercase tracking-wide"
+          className="text-base lowercase lg:text-lg"
           iconClassName="size-3"
         />
       </motion.span>
@@ -91,8 +105,8 @@ function DesktopNavItem({ link, active }: { link: NavLink; active: boolean }) {
   return (
     <Link
       href={link.href}
-      className={`relative text-sm lowercase tracking-wide transition-colors duration-200 ${
-        active ? "text-foreground" : "text-foreground/55 hover:text-foreground"
+      className={`relative text-base lowercase lg:text-lg transition-colors duration-200 ${
+        active ? "text-foreground" : "text-ink hover:text-foreground"
       }`}
     >
       <motion.span variants={itemVariants} className="block">
@@ -161,11 +175,11 @@ export function Navbar() {
           animate={{ y: hidden && !open ? "-110%" : "0%" }}
           transition={{ duration: 0.35, ease: EASE }}
         >
-          <div className="mx-auto grid w-full max-w-3xl grid-cols-[1fr_auto_1fr] items-center gap-2 px-5 py-4 sm:px-6">
-            <div className="flex items-center justify-self-start md:justify-self-end md:pr-10">
+          <div className="mx-auto grid w-full max-w-4xl grid-cols-[1fr_auto_1fr] items-center gap-2 px-5 py-4 sm:px-6 md:py-6">
+            <div className="flex items-center justify-self-start md:justify-self-end md:pr-12">
               <nav
                 aria-label="Primary"
-                className="hidden items-center gap-8 md:flex"
+                className="hidden items-center gap-9 md:flex lg:gap-11"
               >
                 {NAV_LEFT.map((link) => (
                   <DesktopNavItem
@@ -179,14 +193,14 @@ export function Navbar() {
 
             <Link href="/" aria-label="Home" className="justify-self-center">
               <motion.span variants={itemVariants} className="block">
-                <Logo className="h-7 w-auto text-foreground" />
+                <Logo className="h-8 w-auto text-foreground md:h-9" />
               </motion.span>
             </Link>
 
-            <div className="flex items-center justify-self-end md:justify-self-start md:pl-10">
+            <div className="flex items-center justify-self-end md:justify-self-start md:pl-12">
               <nav
                 aria-label="Secondary"
-                className="hidden items-center gap-8 md:flex"
+                className="hidden items-center gap-9 md:flex lg:gap-11"
               >
                 {NAV_RIGHT.map((link) => (
                   <DesktopNavItem
@@ -209,7 +223,7 @@ export function Navbar() {
               >
                 <span
                   aria-hidden="true"
-                  className="text-xs lowercase tracking-[0.18em] text-foreground/60"
+                  className="text-sm lowercase text-ink"
                 >
                   {open ? "close" : "menu"}
                 </span>
@@ -246,14 +260,14 @@ export function Navbar() {
               exit="exit"
               aria-hidden="true"
               onClick={closeMenu}
-              className="absolute inset-0 bg-black/60 backdrop-blur-md"
+              className="absolute inset-0 bg-ink/20 backdrop-blur-md"
             />
             <motion.div
               variants={panelVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="relative flex min-h-0 w-full flex-1 flex-col overflow-hidden rounded-[28px] border border-white/10 bg-[#211f1d]/95 shadow-[0_24px_80px_-16px_rgba(0,0,0,0.7)]"
+              className="relative flex min-h-0 w-full flex-1 flex-col overflow-hidden rounded-sm bg-cream shadow-[0_24px_80px_-16px_rgba(76,83,114,0.35)]"
             >
               <motion.nav
                 aria-label="Mobile"
@@ -263,34 +277,18 @@ export function Navbar() {
                 exit="exit"
                 className="min-h-0 flex-1 overflow-y-auto px-7 pt-3 sm:px-8"
               >
-                <ul className="divide-y divide-white/8">
-                  {MOBILE_PRIMARY.map((link, index) => {
+                <ul>
+                  {MOBILE_PRIMARY.map((link) => {
                     const active =
                       link.action !== "book-call" && isActive(link.href);
                     const row = (
                       <span className="group flex w-full items-baseline justify-between gap-4 py-5 text-left sm:py-6">
                         <span
-                          className={`font-heading text-[clamp(2.1rem,9.5vw,2.9rem)] leading-[1.05] font-semibold tracking-tight transition-colors duration-200 ${
-                            active
-                              ? "text-foreground"
-                              : "text-foreground/90 group-active:text-foreground"
+                          className={`font-heading text-[clamp(2.1rem,9.5vw,2.9rem)] leading-[1.05] font-semibold transition-colors duration-200 ${
+                            active ? "text-foreground" : "text-ink"
                           }`}
                         >
                           {link.label}
-                        </span>
-                        <span className="flex shrink-0 items-center gap-2.5">
-                          <span
-                            aria-hidden="true"
-                            className="font-mono text-[11px] tracking-widest text-foreground/35"
-                          >
-                            {String(index + 1).padStart(2, "0")}
-                          </span>
-                          <span
-                            aria-hidden="true"
-                            className={`size-1.5 rounded-full transition-colors duration-200 ${
-                              active ? "bg-foreground" : "bg-foreground/20"
-                            }`}
-                          />
                         </span>
                       </span>
                     );
@@ -299,14 +297,14 @@ export function Navbar() {
                         {link.action === "book-call" ? (
                           <BookCallTrigger
                             onClick={closeMenu}
-                            className="block w-full focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
+                            className="block w-full focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ink"
                           >
                             {row}
                           </BookCallTrigger>
                         ) : link.locked ? (
                           <LockedLabel
                             label={link.label}
-                            className="w-full py-5 font-heading text-[clamp(2.1rem,9.5vw,2.9rem)] leading-[1.05] font-semibold tracking-tight sm:py-6"
+                            className="w-full py-5 font-heading text-[clamp(2.1rem,9.5vw,2.9rem)] leading-[1.05] font-semibold sm:py-6"
                             iconClassName="size-5"
                           />
                         ) : (
@@ -314,7 +312,7 @@ export function Navbar() {
                             href={link.href}
                             onClick={closeMenu}
                             aria-current={active ? "page" : undefined}
-                            className="block focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
+                            className="block focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ink"
                           >
                             {row}
                           </Link>
@@ -330,14 +328,11 @@ export function Navbar() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="shrink-0 border-t border-white/8 px-7 pt-5 pb-5 sm:px-8"
+                className="shrink-0 px-7 pt-5 pb-6 sm:px-8"
               >
-                <p className="font-mono text-[11px] tracking-[0.22em] text-foreground/35 uppercase">
-                  elsewhere
-                </p>
                 <nav
                   aria-label="Social"
-                  className="mt-3 flex flex-wrap gap-x-5 gap-y-2.5"
+                  className="flex flex-wrap gap-x-5 gap-y-2.5"
                 >
                   {SOCIALS.map((social) => (
                     <a
@@ -346,7 +341,7 @@ export function Navbar() {
                       target="_blank"
                       rel="noreferrer"
                       onClick={closeMenu}
-                      className="text-sm lowercase tracking-wide text-foreground/60 transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
+                      className="text-sm lowercase text-ink transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ink"
                     >
                       {social.label}
                     </a>
@@ -356,14 +351,14 @@ export function Navbar() {
                     target="_blank"
                     rel="noreferrer"
                     onClick={closeMenu}
-                    className="text-sm lowercase tracking-wide text-foreground/60 transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
+                    className="text-sm lowercase text-ink transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ink"
                   >
                     resume
                   </a>
                   <a
                     href={`mailto:${EMAIL}`}
                     onClick={closeMenu}
-                    className="text-sm lowercase tracking-wide text-foreground/60 transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-foreground/40"
+                    className="text-sm lowercase text-ink transition-colors duration-200 hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ink"
                   >
                     email
                   </a>

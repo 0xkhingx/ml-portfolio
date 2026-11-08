@@ -3,35 +3,36 @@ import { EXPERIENCE } from "@/data/experience";
 
 export function Experience() {
   return (
-    <section aria-label="Experience" id="experience">
-      <div className="mx-auto w-full max-w-5xl px-5 py-16 sm:px-6 sm:py-20">
+    <section aria-labelledby="experience-heading" id="experience">
+      <div className="mx-auto grid w-full max-w-[1400px] gap-10 px-5 py-20 sm:px-8 md:grid-cols-[1fr_1.7fr] md:gap-16 md:px-12 md:py-28">
         <FadeIn>
-          <h2 className="font-mono text-xs font-normal lowercase tracking-[0.2em] text-foreground/50 sm:text-sm">
-            03 — experience
+          <h2
+            id="experience-heading"
+            className="font-heading text-[clamp(1.75rem,3vw,2.5rem)] font-light leading-none text-foreground"
+          >
+            Experience
           </h2>
         </FadeIn>
 
-        <div className="mt-8 border-b border-foreground/10 sm:mt-10">
+        <div>
           {EXPERIENCE.map((entry, index) => (
             <FadeIn key={entry.org} delay={index * 0.06} y={12}>
               <div
-                className={
-                  index === 0
-                    ? "pb-7 sm:pb-8"
-                    : "border-t border-foreground/10 pb-7 pt-6 sm:pb-8 sm:pt-7"
-                }
+                className={`flex flex-col gap-1 py-6 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6 ${
+                  index === 0 ? "pt-0 sm:pt-1" : ""
+                }`}
               >
-                <p className="font-mono text-xs lowercase text-foreground/45 sm:text-[13px]">
-                  {entry.period}
-                </p>
-                <div className="mt-2 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
-                  <h3 className="font-heading text-xl font-medium tracking-tight text-foreground sm:text-2xl">
+                <div>
+                  <h3 className="font-heading text-xl font-normal text-foreground sm:text-2xl">
                     {entry.org}
                   </h3>
-                  <p className="shrink-0 text-sm lowercase tracking-wide text-foreground/45 sm:text-right">
+                  <p className="mt-1 text-sm text-ink">
                     {entry.role}
                   </p>
                 </div>
+                <p className="shrink-0 text-[13px] text-ink sm:text-right">
+                  {entry.period}
+                </p>
               </div>
             </FadeIn>
           ))}

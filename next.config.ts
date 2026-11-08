@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/about",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/work/ai-code-reviewer",
         destination: "/work/firstpass",
         permanent: true,

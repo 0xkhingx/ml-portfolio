@@ -18,7 +18,14 @@ export function useCalPopup() {
     (async () => {
       const cal = await getCalApi({ namespace: CAL_NAMESPACE });
       if (cancelled) return;
-      cal("ui", { layout: "month_view", theme });
+      cal("ui", {
+        layout: "month_view",
+        theme,
+        cssVarsPerTheme: {
+          light: { "cal-brand": "#4c5372" },
+          dark: { "cal-brand": "#e2d4e0" },
+        },
+      });
     })();
     return () => {
       cancelled = true;

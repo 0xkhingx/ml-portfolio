@@ -18,7 +18,7 @@ Personal portfolio of **Ogundele Oluwadamilare (0xkhingx)** — software enginee
 
 Featured builds (sourced from [`src/data/projects.ts`](src/data/projects.ts)):
 
-- **[Matchday](https://github.com/0xkhingx/football-prediction)** — fair-play football predictor (tuned XGBoost, 0.985 log-loss on a 1,752-match locked test), live at [matchday.pxxl.click](https://matchday.pxxl.click)
+- **[Matchday](https://github.com/0xkhingx/football-prediction)** — fair-play football predictor (tuned XGBoost, 0.985 log-loss on a 1,752-match locked test), live at [matchdayfate.vercel.app](https://matchdayfate.vercel.app)
 - **[nigerian-lang-classifier](https://github.com/0xkhingx/nigerian-lang-classifier)** — 5-language Nigerian text classifier, 99.4% accuracy on 64k+ sentences
 - **[mnist-nn-scratch](https://github.com/0xkhingx/mnist-nn-scratch)** — 2-layer neural net from scratch in NumPy, benchmarked against PyTorch
 - **[Moodmix](https://github.com/0xkhingx/Moodmix)** — mood-to-Spotify playlist pipeline (Electric Sheep Africa capstone)

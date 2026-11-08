@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
     "https://0xkhingx.vercel.app";
 
-  const staticRoutes = ["", "/about", "/work", "/writing"].map((route) => ({
+  const staticRoutes = ["", "/work", "/writing"].map((route) => ({
     url: `${siteUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,

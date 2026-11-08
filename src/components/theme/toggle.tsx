@@ -21,7 +21,7 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-      className="flex size-9 items-center justify-center text-foreground/80 transition-colors hover:text-foreground"
+      className="flex size-9 items-center justify-center text-foreground transition-colors hover:text-foreground"
     >
       {mounted ? (
         <AnimatePresence mode="wait" initial={false}>

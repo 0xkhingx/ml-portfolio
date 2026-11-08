@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Dre (0xkhingx) — software engineer building end-to-end products across the web and machine learning.",
     start_url: "/",
     display: "standalone",
-    background_color: "#121110",
-    theme_color: "#121110",
+    background_color: "#fffdf6",
+    theme_color: "#fffdf6",
     icons: [
       {
         src: "/favicon.ico",

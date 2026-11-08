@@ -162,7 +162,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "mnist-nn-scratch",
-    name: "mnist-nn-scratch",
+    name: "MNIST from scratch",
     href: "https://github.com/0xkhingx/mnist-nn-scratch",
     description:
       "A two-layer neural network from scratch in NumPy — backprop, SGD — benchmarked against PyTorch.",
@@ -207,7 +207,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "nigerian-lang-classifier",
-    name: "nigerian-lang-classifier",
+    name: "Nigerian Language Classifier",
     href: "https://github.com/0xkhingx/nigerian-lang-classifier",
     description:
       "Detects English, Yoruba, Igbo, Hausa, and Pidgin from text — 99.4% accuracy across 64k+ sentences.",
@@ -274,7 +274,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "moodmix",
-    name: "Moodmix",
+    name: "MoodMix",
     href: "https://github.com/0xkhingx/Moodmix",
     description:
       "Classifies music by your mood and pushes a matching playlist to your Spotify.",
@@ -399,34 +399,34 @@ export const PROJECTS: Project[] = [
     slug: "matchday",
     name: "Matchday",
     href: "https://github.com/0xkhingx/football-prediction",
-    liveUrl: "https://matchday.pxxl.click/",
+    liveUrl: "https://matchdayfate.vercel.app/",
     description:
       "Fair-play football predictor for Europe's top five leagues — tuned XGBoost on 23 pre-match signals, benchmarked against bookmaker odds, shipped as a live product.",
     tagline: "Football predictions built without using bookmaker odds.",
     year: "2026",
     role: "ML engineering · product",
     categories: ["Machine learning", "Product"],
-    cover: "/images/work/matchday/thumb-full.png",
+    cover: "/images/work/matchday/rail/01-v2.webp",
     gallery: [
       {
-        src: "/images/work/matchday/fixtures.png",
-        alt: "Matchday weekly fixtures board showing Premier League ties with Call It buttons",
-        caption: "Weekly fixtures — every tie gets a call",
+        src: "/images/work/matchday/rail/02-v2.webp",
+        alt: "This week's ties: Premier League fixture cards, each with a Predict button",
+        caption: "This week's ties: every fixture gets a call",
       },
       {
-        src: "/images/work/matchday/predictor.jpeg",
-        alt: "Matchday manual predictor for Manchester United vs Manchester City with home, draw and away probabilities",
+        src: "/images/work/matchday/rail/03-v2.webp",
+        alt: "Name your tie: the manual predictor with Arsenal against Chelsea selected",
         caption: "Name-your-tie predictor with honest probabilities",
       },
       {
-        src: "/images/work/matchday/simulator.jpeg",
-        alt: "Matchday title simulator table after 2,000 simulated seasons",
+        src: "/images/work/matchday/rail/05-v2.webp",
+        alt: "Premier League table with title and top-four chances from 2,000 simulated seasons",
         caption: "2,000-season Monte Carlo title simulator",
       },
       {
-        src: "/images/work/matchday/record.png",
-        alt: "Matchday season record dashboard showing 50.7 percent accuracy over 146 calls",
-        caption: "Published season record — log-loss disclosed, not hidden",
+        src: "/images/work/matchday/rail/06-v2.webp",
+        alt: "Honest numbers: Matchday's log-loss over time against the bookmaker",
+        caption: "Published numbers: log-loss disclosed, not hidden",
       },
     ],
     summary:
