@@ -1,21 +1,27 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { LinkedinIcon, XBrandIcon } from "@/icons/social";
 
 interface ShareButtonsProps {
   title: string;
 }
 
-export function ShareButtons({ title }: ShareButtonsProps) {
-  const [url, setUrl] = useState("");
-  const [copied, setCopied] = useState(false);
-  const [canNativeShare, setCanNativeShare] = useState(false);
+const noopSubscribe = () => () => {};
 
-  useEffect(() => {
-    setUrl(window.location.href);
-    setCanNativeShare(typeof navigator !== "undefined" && "share" in navigator);
-  }, []);
+export function ShareButtons({ title }: ShareButtonsProps) {
+  // Browser-only values: empty/false during SSR, real once hydrated.
+  const url = useSyncExternalStore(
+    noopSubscribe,
+    () => window.location.href,
+    () => "",
+  );
+  const canNativeShare = useSyncExternalStore(
+    noopSubscribe,
+    () => "share" in navigator,
+    () => false,
+  );
+  const [copied, setCopied] = useState(false);
 
   const encodedUrl = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(title);

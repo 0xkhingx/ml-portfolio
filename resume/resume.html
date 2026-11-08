@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Oluwadamilare (Dre) Ogundele — Résumé</title>
+<!--
+  Source for public/resume.pdf. Rebuild after editing:
+    node resume/build.mjs
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Nunito:wght@400;600;700&display=block" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #fffdf6;
+    --lilac: #e2d4e0;
+    --lilac-soft: #f1eaf0;
+    --mist: #949ab1;
+    --ink: #4c5372;
+    --text: #2b3049;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--cream); }
+  body {
+    font-family: "Nunito", system-ui, sans-serif;
+    color: var(--text);
+    font-size: 9.6pt;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    display: grid;
+    grid-template-columns: 62mm 1fr;
+    page-break-after: always;
+    overflow: hidden;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  .side {
+    background: var(--lilac-soft);
+    padding: 16mm 8mm 14mm 11mm;
+  }
+  .main { padding: 16mm 13mm 14mm 10mm; }
+
+  h1 {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 300;
+    font-size: 25pt;
+    line-height: 1.05;
+    color: var(--text);
+  }
+  .role {
+    margin-top: 2.5mm;
+    font-size: 10.5pt;
+    color: var(--ink);
+  }
+  h2 {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 400;
+    font-size: 13pt;
+    color: var(--text);
+    margin: 7mm 0 2.5mm;
+  }
+  .side h2 { font-size: 11.5pt; margin-top: 7mm; }
+  .side h2:first-child { margin-top: 0; }
+  .main > h2:first-of-type { margin-top: 6mm; }
+
+  .side p, .side li { font-size: 8.8pt; line-height: 1.5; }
+  .side ul { list-style: none; }
+  .side li + li { margin-top: 1.2mm; }
+  .skill-group + .skill-group { margin-top: 2.6mm; }
+  .skill-group h3 { font-size: 8.8pt; font-weight: 700; color: var(--text); }
+  .skill-group p { color: var(--ink); }
+  .muted { color: var(--ink); }
+
+  .summary { color: var(--text); font-size: 9.8pt; }
+
+  .entry + .entry { margin-top: 4.2mm; }
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4mm;
+  }
+  .entry-title { font-weight: 700; font-size: 10pt; }
+  .entry-when { font-size: 8.8pt; color: var(--ink); white-space: nowrap; }
+  .entry-where { font-size: 9pt; color: var(--ink); margin-top: 0.3mm; }
+  .entry ul { margin: 1.6mm 0 0 4mm; }
+  .entry li { padding-left: 1mm; }
+  .entry li + li { margin-top: 0.9mm; }
+  .entry li::marker { color: var(--mist); }
+  strong { font-weight: 700; }
+
+  .footnote {
+    margin-top: 8mm;
+    font-size: 8.4pt;
+    color: var(--ink);
+  }
+</style>
+</head>
+<body>
+
+<!-- Page 1 -->
+<section class="page">
+  <aside class="side">
+    <h2>Contact</h2>
+    <ul>
+      <li><a href="mailto:0xkhingx@gmail.com">0xkhingx@gmail.com</a></li>
+      <li>Lagos, Nigeria · remote</li>
+      <li><a href="https://0xkhingx.vercel.app">0xkhingx.vercel.app</a></li>
+      <li><a href="https://github.com/0xkhingx">github.com/0xkhingx</a></li>
+      <li><a href="https://www.linkedin.com/in/0xkhingx">linkedin.com/in/0xkhingx</a></li>
+    </ul>
+
+    <h2>Skills</h2>
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <p>Python, TypeScript, JavaScript (ES6+), Rust</p>
+    </div>
+    <div class="skill-group">
+      <h3>Backend &amp; data</h3>
+      <p>FastAPI, Flask, Node.js, PostgreSQL, SQLite, Supabase, REST API design, job queues, GitHub Apps &amp; webhooks</p>
+    </div>
+    <div class="skill-group">
+      <h3>Machine learning</h3>
+      <p>XGBoost, RAG (LangChain, ChromaDB), model evaluation &amp; benchmarking, NLP &amp; computer vision integration</p>
+    </div>
+    <div class="skill-group">
+      <h3>Frontend</h3>
+      <p>React, Next.js, React Native, Astro, Tailwind CSS, HTML5 / CSS3, Figma to code</p>
+    </div>
+    <div class="skill-group">
+      <h3>Tooling</h3>
+      <p>pytest, Docker, Git &amp; GitHub, code review, Agile workflows</p>
+    </div>
+    <div class="skill-group">
+      <h3>Research</h3>
+      <p>Bioinformatics, molecular docking (AutoDock Vina, PyMOL)</p>
+    </div>
+
+    <h2>Education</h2>
+    <p><strong>B.Sc. Biochemistry &amp; Molecular Biology</strong></p>
+    <p class="muted">Obafemi Awolowo University<br />2021 – 2026</p>
+
+    <h2>Certification</h2>
+    <p>Electric Sheep Africa<br /><span class="muted">Machine Learning Fellowship</span></p>
+
+    <h2>Languages</h2>
+    <p>English, fluent<br />French, basic</p>
+  </aside>
+
+  <main class="main">
+    <h1>Oluwadamilare<br />Ogundele</h1>
+    <p class="role">Dre · Software engineer for the web and machine learning</p>
+
+    <h2>Summary</h2>
+    <p class="summary">
+      Software engineer who builds products end to end: machine learning models in Python,
+      APIs in FastAPI, and interfaces in React and Next.js. 3+ years building Python and
+      PostgreSQL systems, plus applied ML as a fellow and computational bioinformatics
+      research, which shows in how I measure results: I ship tested, containerised services
+      with real benchmarks and performance numbers.
+    </p>
+
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Frontend Engineering Intern</span>
+        <span class="entry-when">Oct 2026 – Present</span>
+      </div>
+      <p class="entry-where">Nannoy · Remote</p>
+      <ul>
+        <li>Building and shipping frontend features with the engineering team.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Freelance Python Engineer &amp; Frontend Developer</span>
+        <span class="entry-when">2020 – Present</span>
+      </div>
+      <p class="entry-where">Self-employed · Remote</p>
+      <ul>
+        <li>Built and deployed <strong>Matchday</strong>, a football outcome predictor: XGBoost model, FastAPI backend, Next.js and TypeScript frontend, Docker and 51 pytest tests, live in production.</li>
+        <li>Delivered <strong>ArchitektureArt</strong> end to end as sole developer, set up in 4 days; generated about 2,000 WebP/AVIF image variants and cut load time by 60%.</li>
+        <li>Built the <strong>Kynigma</strong> studio website from the ground up and shipped client sites in React, Next.js and TypeScript, in Agile workflows with international clients, on time and within scope.</li>
+        <li>Developed Python backend services and automation (Flask, FastAPI) and integrated ML models into production NLP and computer vision applications.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Bioinformatics &amp; Machine Learning Researcher</span>
+        <span class="entry-when">2025 – Present</span>
+      </div>
+      <p class="entry-where">Obafemi Awolowo University</p>
+      <ul>
+        <li>Research the binding affinity of gentamicin through molecular docking (AutoDock Vina) of bioactive compounds from cornsilk, pineapple and curcumin, with structures from PubChem and the Protein Data Bank.</li>
+        <li>Compare binding energies (kcal/mol) across candidates and inspect poses in PyMOL to rank which interact most strongly.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Machine Learning Fellow</span>
+        <span class="entry-when">2025 – 2026</span>
+      </div>
+      <p class="entry-where">Electric Sheep Africa</p>
+      <ul>
+        <li>Built and deployed retrieval-augmented generation (RAG) systems in Python with LangChain, sentence-transformer embeddings and a ChromaDB vector store behind a FastAPI service.</li>
+        <li>Took my own projects from idea to deployment, shipping Matchday and MoodMix as end-to-end products; earned the fellowship certification.</li>
+      </ul>
+    </div>
+  </main>
+</section>
+
+<!-- Page 2 -->
+<section class="page">
+  <aside class="side">
+    <h2>More work</h2>
+    <p><a href="https://0xkhingx.vercel.app/work">0xkhingx.vercel.app/work</a></p>
+  </aside>
+
+  <main class="main">
+    <h2 style="margin-top:0">Selected projects</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Matchday · football outcome predictor</span>
+        <span class="entry-when"><a href="https://matchdayfate.vercel.app">matchdayfate.vercel.app</a></span>
+      </div>
+      <ul>
+        <li>XGBoost on 23 fair-play features predicting Home/Draw/Away across Europe's top five leagues, served by FastAPI to a Next.js and TypeScript frontend.</li>
+        <li>Locked a 1,752-match test set before tuning: log-loss 0.985 against 1.077 for the naive baseline, close to the bookmakers' 0.965.</li>
+        <li>Covered by 51 pytest tests and packaged with Docker for reproducible deployment.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">ArchitektureArt · client website</span>
+        <span class="entry-when"><a href="https://architektureart.xyz">architektureart.xyz</a></span>
+      </div>
+      <ul>
+        <li>Built the entire gallery storefront alone and had the project set up in 4 days.</li>
+        <li>Generated and optimised about 2,000 WebP and AVIF files across sizes and orientations, including 777 generated images, and cut page load time by 60%.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">MoodMix · mood-to-playlist ML app</span>
+        <span class="entry-when"><a href="https://github.com/0xkhingx/moodmix">github.com/0xkhingx/moodmix</a></span>
+      </div>
+      <ul>
+        <li>Designed, built and deployed a product-focused ML web app during the Electric Sheep Africa fellowship; source code is public.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Kynigma · studio website</span>
+        <span class="entry-when"><a href="https://kynigma.vercel.app">kynigma.vercel.app</a></span>
+      </div>
+      <ul>
+        <li>Built the complete studio site from the ground up, including the hero and project presentation.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Code-review-as-a-service platform</span>
+        <span class="entry-when">In development</span>
+      </div>
+      <ul>
+        <li>GitHub App with signed pull-request webhooks, FastAPI, a PostgreSQL-backed job queue (no Redis) and workers posting automated review comments.</li>
+        <li>Ruff, Bandit, ESLint and Semgrep run before an LLM behind a provider-agnostic interface, with a Next.js dashboard.</li>
+      </ul>
+    </div>
+
+    <h2>Earlier career</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Secondary &amp; Primary School Teacher</span>
+        <span class="entry-when">2018 – 2023</span>
+      </div>
+      <p class="entry-where">Wonderful Heights School, Abeokuta (2021 – 2023) · The Best Legacy Academy, Owode Yewa (2018 – 2020)</p>
+      <ul>
+        <li>Taught STEM, building the communication and mentoring skills I bring to engineering teams.</li>
+      </ul>
+    </div>
+  </main>
+</section>
+
+</body>
+</html>

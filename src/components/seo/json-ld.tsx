@@ -55,16 +55,6 @@ export function websiteJsonLd(siteUrl: string) {
   };
 }
 
-export function profilePageJsonLd(siteUrl: string, pageUrl: string) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    "@id": pageUrl,
-    url: pageUrl,
-    mainEntity: personJsonLd(siteUrl),
-  };
-}
-
 interface ProjectJsonLdInput {
   siteUrl: string;
   pageUrl: string;

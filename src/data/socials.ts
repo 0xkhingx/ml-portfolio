@@ -9,5 +9,4 @@ export const SOCIALS: NavLink[] = [
 
 export const EMAIL = "0xkhingx@gmail.com";
 
-export const RESUME_URL =
-  "https://0xkhingx.vercel.app/Ogundele_Oluwadamilare_Resume.pdf";
+export const RESUME_URL = "/resume.pdf";

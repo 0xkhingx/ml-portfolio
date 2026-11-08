@@ -34,7 +34,6 @@ html {
   --color-ink: var(--ink);
   --font-sans: var(--font-nunito);
   --font-heading: var(--font-josefin);
-  --font-display: var(--font-bitcount);
   --font-mono: var(--font-geist-mono);
 }
 

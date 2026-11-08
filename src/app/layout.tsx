@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import {
-  Bitcount_Ink,
   Geist_Mono,
   Josefin_Sans,
   Nunito,
@@ -11,13 +10,6 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { JsonLd, personJsonLd, websiteJsonLd } from "@/components/seo/json-ld";
 import { ThemeProvider } from "@/components/theme/provider";
 import "./globals.css";
-
-const bitcountInk = Bitcount_Ink({
-  variable: "--font-bitcount",
-  subsets: ["latin"],
-  display: "swap",
-  adjustFontFallback: false,
-});
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -105,7 +97,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${bitcountInk.variable} ${nunito.variable} ${josefinSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${nunito.variable} ${josefinSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
         <JsonLd data={[websiteJsonLd(siteUrl), personJsonLd(siteUrl)]} />

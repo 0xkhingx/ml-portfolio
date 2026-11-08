@@ -10,11 +10,11 @@ Personal portfolio of **Ogundele Oluwadamilare (0xkhingx)** — software enginee
 
 | Route | Content |
 |---|---|
-| `/` | Landing — tagline, selected work, writing teasers |
-| `/work` | Case studies with challenge → approach → outcome write-ups |
+| `/` | Hero, selected work (screenshot rails), experience |
+| `/work` | Every product as a screenshot rail, plus more projects |
+| `/work/[slug]` | Case studies |
 | `/writing` | Markdown posts (rendered with syntax highlighting), shareable links |
-| `/about` | Experience, stack, manifesto |
-| `/contact` | Contact + book-a-call (Cal.com embed) |
+| `/contact` | Redirects to the footer contact block; booking opens Cal.com |
 
 Featured builds (sourced from [`src/data/projects.ts`](src/data/projects.ts)):
 

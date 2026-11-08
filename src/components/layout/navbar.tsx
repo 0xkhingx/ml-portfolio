@@ -127,6 +127,13 @@ export function Navbar() {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
+  // Close the menu when the route changes (adjusting state during render,
+  // React's recommended alternative to a setState-in-effect).
+  const [lastPath, setLastPath] = useState(pathname);
+  if (pathname !== lastPath) {
+    setLastPath(pathname);
+    setOpen(false);
+  }
 
   useMotionValueEvent(scrollY, "change", (y) => {
     if (open) {
@@ -143,10 +150,6 @@ export function Navbar() {
       document.body.style.overflow = "";
     };
   }, [open]);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     if (!open) return;
