@@ -91,6 +91,23 @@ export const SHOWCASE: Showcase[] = [
     ]),
   },
   {
+    slug: "solar-system",
+    name: "Solar System",
+    line: "An interactive tour from the Big Bang to the surface of eight worlds, with Earth lit by where the Sun really is right now.",
+    href: "https://solar-system-three-swart.vercel.app",
+    linkLabel: "Live app",
+    external: true,
+    icon: "/images/work/solar-system/icon.svg",
+    shots: rail("solar-system", [
+      "The story of everything: the universe timeline at the first stars, 100 million years in",
+      "The Solar System hub with the Sun and eight planets on their orbits",
+      "Earth with live day and night, city lights on the dark side",
+      "The Himalaya highlighted on Earth beside the list of eight landing sites",
+      "Landing on Mount Everest with gravity, day length and surface facts",
+      "Saturn with its rings and moons, and an about panel",
+    ]),
+  },
+  {
     slug: "letters",
     name: "Letters",
     line: "A private, self-hosted place to write letters to someone you love. She reads with no login and no tracking.",
