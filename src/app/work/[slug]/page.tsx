@@ -56,7 +56,7 @@ export async function generateMetadata({
  */
 const NARRATIVE_VISUALS: Record<string, Record<number, number[]>> = {
   matchday: { 2: [3], 4: [0, 1, 2] },
-  architektureart: { 1: [0], 2: [1], 3: [2] },
+  architektureart: { 2: [1], 3: [2] },
   firstpass: { 1: [0], 2: [1] },
   kynigma: { 0: [0], 1: [1], 2: [2] },
 };
