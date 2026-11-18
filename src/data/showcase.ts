@@ -61,7 +61,7 @@ export const SHOWCASE: Showcase[] = [
       "The collection with era and continent filters beside a grid of paintings",
       "Archidle on two phones: guesses with clues, and a solved puzzle",
       "Piece page for the Great Pyramid of Giza painting",
-    ], "v2"),
+    ], "v3"),
   },
   {
     slug: "moodmix",

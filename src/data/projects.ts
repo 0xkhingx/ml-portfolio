@@ -11,20 +11,20 @@ export const PROJECTS: Project[] = [
     year: "2026",
     role: "Design engineering · brand · game design",
     categories: ["Web", "Product"],
-    cover: "/images/work/architektureart/rail/01-v2.webp",
+    cover: "/images/work/architektureart/rail/01-v3.webp",
     gallery: [
       {
-        src: "/images/work/architektureart/rail/01-v2.webp",
+        src: "/images/work/architektureart/rail/01-v3.webp",
         alt: "Architekture home page: the headline The world's great buildings, painted in light and shadow, beside a stepped stack of three paintings",
         caption: "Home: the work up front, two clear ways in",
       },
       {
-        src: "/images/work/architektureart/rail/02-v2.webp",
+        src: "/images/work/architektureart/rail/02-v3.webp",
         alt: "The collection page with era and continent filters beside a grid of landmark paintings",
         caption: "The collection, filtered by era and continent",
       },
       {
-        src: "/images/work/architektureart/rail/03-v2.webp",
+        src: "/images/work/architektureart/rail/03-v3.webp",
         alt: "Two phone screens of Archidle: guesses with era, place and age clues, and a solved puzzle for Milan Cathedral",
         caption: "Archidle: each miss zooms out and returns era, place and age clues",
       },
